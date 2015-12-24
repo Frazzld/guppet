@@ -235,7 +235,26 @@ function GupPet_Mounten( MountType , Location   )
 	if GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed then
 		GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed = -3 ;
 	end
-
+	
+	-- low lvls without riding skill
+	local _, _, _, _, _, _, _, _, _, _, _, _, wasEarnedByMe = GetAchievementInfo(891) -- apprentice riding 
+	local _, _, _, completed = GetAchievementInfo(9909) -- Collect 35 Heirlooms
+	if not wasEarnedByMe and completed then 
+		local playerfaction = UnitFactionGroup("player");
+		for i = 1, C_MountJournal.GetNumMounts() do
+			local _, spellID, _, _, _, _, _, _, faction, hideOnChar, isCollected = C_MountJournal.GetMountInfo(i);
+			
+			if spellID == 179244 and  playerfaction == "Horde" then
+				C_MountJournal.Summon(i);
+				return;
+			end
+			if spellID == 179245 and playerfaction == "Alliance" then
+				C_MountJournal.Summon(i);
+				return;
+			end
+		end
+	end
+	--|
 	
 	local MountSlots = { Total=0} ;
 
