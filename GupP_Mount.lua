@@ -236,7 +236,7 @@ function GupPet_Mounten( MountType , Location   )
 		GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed = -3 ;
 	end
 	
-	-- low lvls without riding skill
+	-- Summon Chauffeur for lowlvl chars without riding skill
 	local _, _, _, _, _, _, _, _, _, _, _, _, wasEarnedByMe = GetAchievementInfo(891) -- apprentice riding 
 	local _, _, _, completed = GetAchievementInfo(9909) -- Collect 35 Heirlooms
 	if not wasEarnedByMe and completed then 
