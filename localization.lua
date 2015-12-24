@@ -325,11 +325,155 @@ if (GetLocale() == "deDE") then
 end
 
 -------------------------------------------------------------------------------
--- Spanish (Spain) localization
+-- Spanish (Spain) localization by Kancerberus-Drakkari
 -------------------------------------------------------------------------------
 
-if (GetLocale() == "esES") then	
+if (GetLocale() == "esES") then
+	
+	-- For the key bind interface
+	BINDING_HEADER_GUPPET = "GupPet";
+	BINDING_NAME_GUPPET_AUTO = "Auto select";
+	BINDING_NAME_GUPPET_AUTOFLY = "Auto select fly";
+	BINDING_NAME_GUPPET_AUTOGROUND = "Auto select ground";
+	BINDING_NAME_GUPPET_MULTIGROUNDMOUNT = "Multi ground mount";
+	BINDING_NAME_GUPPET_CALLCOMPANION = "Call companion";
+	BINDING_NAME_GUPPET_AQUATICMOUNT = "Aquatic mount";
 
+	-- Slash Commands
+	GUPPET_S["SLASH"] = "The start command is '/GP' or '/GupPet'. ( The slashcommands in GupPet dont support shapeshift abilities. )" ;
+	GUPPET_S["USE"] = " or " ;
+	GUPPET_S["MULTIGROUNDMOUNT"] = { "mgm" , "multigroundmount"	, "Selects random a multi mount" } ;
+	GUPPET_S["AQUATICMOUNT"]	= { "aqm" , "aquaticmount" 		, "Selects random a aquatic mount" } ;  
+	GUPPET_S["AUTOMOUNT"] 		= { "am"  , "automount" 		, "Selects automatic a random mount depending on the location if you can fly" } ;
+	GUPPET_S["AUTOGROUNDMOUNT"] = { "agm" , "autogroundmount" 	, "Selects random a ground mount" } ;
+	GUPPET_S["AUTOFLYMOUNT"]	= { "afm" , "autoflymount" 		, "Selects random a fly mount" } ;
+	GUPPET_S["CALLCOMPANION"] 	= { "cc"  , "callcompanion" 	, "Selects random a companion" } ;
+	GUPPET_S["DEBUG"] 			= { "debug" , "debug" , "" } ;
+	GUPPET_S["OPTIONMENU"] 		= { "om"  , "optionmenu" 		, "Shortcut to the optionmenu" } ;
+	GUPPET_S["TOGGLEINCONSIS"]	= { "ti"  , "toggleinconsistent" , "" } ;
+	
+	GUPPET_S["SLASH_T_OM_RESET"] = "reset" ;
+
+	-- Other
+	GUPPET_L["OPTIONS"]	= "Opciones";
+	GUPPET_L["MOUNTSCOMPANIONS"]	= "Monturas + mascotas de compañia";
+	GUPPET_L["CLOSE"]	= "Cerrar";
+	GUPPET_L["HELP"]	= "Ayuda";
+		
+	GUPPET_L["ADD"]				= { "Agregar" , "Agregar a la siguiente localización" };
+	GUPPET_L["REMOVE"]			= { "Quitar" , "Removes the selected location" };
+	GUPPET_L["ALLAQUATICMOUNT"]	= { "Acuatica" , "" };
+	GUPPET_L["ALLGROUNDMOUNT"]	= { "Terrestre" , "" };
+	GUPPET_L["ALLFLYMOUNT"]		= { "Voladora" , "" };
+	GUPPET_L["ALLCOMPANION"]	= { "Mascota de compañia" , "" };
+	
+	GUPPET_L["ENABLE"]		= { "Activar" , "" };
+	GUPPET_L["DISABLE"]		= { "Desactivar" , "" };
+	GUPPET_L["SHOW"]		= { "Mostrar" , "" };
+	GUPPET_L["LOCKED"]		= { "Bloquear" , "" };
+	GUPPET_L["SCALE"]		= { "Escala" , "Pequeño", "Grande" };
+	GUPPET_L["COMPANIONBUTTONSHOW"]		= { "Mostrar boton de mascota de compañia" , "" };
+	GUPPET_L["RESTORE"]		= { "Restaurar" , "Restaura la posición de la barra a su posicion inicial" };
+	GUPPET_L["ICON"]		= { "Icono" , "Muestra un menu para cambiar el diseño de los iconos"};
+
+	GUPPET_L["BUTTONMODE"]	= { "Boton montura automatica" , "Cambia los botones de montura de uno a dos", "SI estas leyendo esto no hay soporte para tu idioma" };
+	GUPPET_L["EXPERTMODE"]	= { "Modo experto" , "Cambia al modo experto donde puedes configurar mas barras para tus mascotas" };
+	GUPPET_L["BUTTONALIGNMENT"]	= { "Alineamiento" , "Cambia la posiciaón de horizontal a vertical" };
+	GUPPET_L["HIDEKEYBINDTEXT"] = { "Ocultar ayuda" , "Oculta los textos de ayuda al revisar los botones"  }
+	
+	GUPPET_L["AQUATICMOUNT"]	= { "" , "" };
+	GUPPET_L["MULTIDMOUNT"]		= { "Multi" , "" };
+	GUPPET_L["COMPANION"]		= { "" , "" };
+	
+	GUPPET_L["AUTOCALLCOMPANION"]	= "Companion" ;
+	GUPPET_L["AUTOCALLCOMPANION_ENABLE"] 	= { "Habilitar auto invocación" , "" };
+	GUPPET_L["AUTOCALLCOMPANION_CITY"] 	= { "Ciudad" , "" };
+	GUPPET_L["AUTOCALLCOMPANION_OUTSIDE"] = { "Exterior" , "" };
+	GUPPET_L["AUTOCALLCOMPANION_ARENA"] 	= { "Arena" , "" };
+	GUPPET_L["AUTOCALLCOMPANION_PARTY"] = { "Grupo" , "" };
+	GUPPET_L["AUTOCALLCOMPANION_RAID"] = { "Banda" , "" };
+	GUPPET_L["AUTOCALLCOMPANION_BATTLEGROUND"] = { "Campo de batalla" , "" };
+	GUPPET_L["AUTOCALLCOMPANION_DELAY"] 	= { "Delay" , "El tiempo de espera para una autollamada de mascota 2 a 10" };
+	GUPPET_L["AUTOCALLCOMPANION_AUTODISMISSMOUNTED"] 	= { "Desmontar cuando se encuentre montando" , "" };
+	GUPPET_L["AUTOCALLCOMPANION_RESUMMON"] 	= { "Llamado con Delay" , "Esta funcion permite llamar con un tiempo X en segundos de delay a la pet cuando se entra a la ciudad|nOn 0 (Most left) disables this function." };
+	GUPPET_L["AUTOCALLCOMPANION_RESUMMONCITYONLY"] = {"Reinvocar de nuevo solo en la ciudad/taberna",""};
+	GUPPET_L["AUTOCALLCOMPANION_PETOFTHEDAY"] = {"Activa 'Mascota del dia'", "Siempre invocaras la misma mascota todo el dia. (You can overrule it by pressing the ingame button) "} ;	
+		
+	GUPPET_L["SLASHCOMMANDS"]		= { "Slashcommands" , "" };
+	GUPPET_L["EXTRA"]				= { "Extra" , "" };
+	GUPPET_L["CLASS"]				= { "Clase" , "" };
+	GUPPET_L["AUTODISMOUNT"]		= { "Auto desmontar" , "Automaticamente desmontara al jugador si recibe el mensaje Estas en una montura y no se encuentra volando" };
+	GUPPET_L["INGAMEBUTTONS"]		= { "Botones ingame" , "" };
+	
+	GUPPET_L["PREVIEWFRAME"] 		= { "Vista previa" , "" };
+	GUPPET_L["PREVIEWFRAMESPEED"] 	= { "Velocidad de rotacion" , "-1", "1" };
+	GUPPET_L["PREVIEWFRAMESTARTPOS"] = { "Posición inicial" , "-180" , "180"};
+	
+	GUPPET_L["MINIMAPBUTTONFRAME"] = { "Boton minimapa"};
+	
+	GUPPET_L["DRUID_Fly"]		= { "Usar Forma voladora" , "" };
+	GUPPET_L["DRUID_Aquatic"]	= { "Usar Forma acuatica" , "" };
+	GUPPET_L["DRUID_Travel"]	= { "Usar forma de viaje mientras se mueve" , "" };
+	GUPPET_L["DRUID_Cat"]		= { "Usar Forma felina en interiores" , "" };
+	GUPPET_L["DRUID_Inconsistent"] = "Quitar cambio de forma instantaneamente para usar montura";
+	
+	GUPPET_L["SHAMAN_Ghost"]	= { "Usar Lobo fantasmal si esta caminando" , "" };
+	GUPPET_L["SHAMAN_WaterWalking"]	= { "Usar caminar sobre el agua si esta nadando" , "" };
+	
+	GUPPET_L["MAGE_SlowFall"] 	= { "Usar caida lenta si esta cayendo" , ""}
+	
+	GUPPET_L["PRIEST_Levitate"] 	= { "Usar levitar si esta caminando" , ""};
+	
+	GUPPET_L["HUNTER_Cheetah"]	= { "Usar aspecto del guepardo mientras esta caminando" , "" };
+	
+	GUPPET_L["Worgen_RunningWild"]	= { "Usar galopada salvaje en lugar de montura terrestre" , "" };
+	
+	GUPPET_L["DEATHKNIGHT_PathOfFrost"] 	= { "Usar Camino de hielo si esta nadando " , ""}
+	 
+	
+	GUPPET_L["INTERFACE_REMOVE"] = { "UD quiere que se remueva %s" , "Si", "No" };
+	GUPPET_L["INTERFACE_CHANGEMODE"] = { "Esta accion requiere recargar. Continuar ?" , "Si", "No" };
+	
+	GUPPET_L["INGAMEBUTTONS_AUTO"]		= { "Automatica" , " +Shift para forzar una terrestre |n +Ctrl para forzar una con pasajero" , " +Alt para usar Forma de viaje / Lobo fantasmal" };
+	GUPPET_L["INGAMEBUTTONS_GROUND"]	= { "Auto Terrestre" , "" };
+	GUPPET_L["INGAMEBUTTONS_FLY"]		= { "Auto voladora" , "" };
+	GUPPET_L["INGAMEBUTTONS_COMPANION"]	= { "Mascota de compañia aleatoria" , " +Shift para retirar" };
+	
+	GUPPET_L["INGAMEBUTTONS_MOVE"] 		= { "Mover botones" , "Click derecho para bloquear"};
+	
+	-- Texts for in chat
+	GUPPET_T["UNKNOWNMOUNTFOUND"] = "Una montura desconocida ha sido hallada.  Porfavor reportala para que podamos incluirla en una nueva version."	;
+	GUPPET_T["NEWVERSIONFOUND"] = "Una NUEVA version ha sido encontrada. La nueva version es v." ;
+	GUPPET_T["CANTCALLCOMPANION"] = "No se puede invocar mascotas de compañia ( Ninguna disponible )" ;
+	GUPPET_T["CANTCALLCOMPANIONNOSNOWBALL"] = "No se puede invocar las mascotas de compañia. Todas las habilitadas necesitan bolas de nieve pero no tienes ninguna." ;
+	GUPPET_T["CANTCALLCOMPANIONONEINTHETABLE"] = "Solo una mascota de compañia esta habilitada en la rotacion y ya esta afuera.";
+	
+	GUPPET_T["CANTCALLGROUNDMOUNT"] = "No se puede llamar ninguna montura terrestre ( Ninguna activada )" ;
+	GUPPET_T["CANTCALLFLYMOUNT"] = "No se puede llamar ninguna montura voladora ( Ninguna activada )" ;
+	GUPPET_T["CANTCALLAQUATICMOUNT"] = "No se puede llamar ninguna montura acuatica ( Ninguna activada )" ;
+	GUPPET_T["DEBUGMODEON"] = "Modo debug ENCENDIDO";
+	GUPPET_T["DEBUGMODEOFF"] = "Modo debug APAGAGO";
+	GUPPET_T["LOADED"] = "Cargado";
+	GUPPET_T["NOTSUPPORTED"] = "|cffee4400 Su lenguaje no es soportado. La autodeteccón de idioma podria estar desactivada. ";
+	GUPPET_T["UNKNOWNSLASHCOMMAND"] = "|cffee4400 La sintaxis del comando que has escrito no es correcta.";
+	
+	GUPPET_T["UNKNOWNSLASHCOMMAND_COMMANDS"] = {};
+
+	GUPPET_T["UNKNOWNSLASHCOMMAND_COMMANDS"][1] = "|cffee4400".. GUPPET_S["AUTOMOUNT"][2] .."|r -> ".. GUPPET_S["AUTOMOUNT"][3]  ;
+	GUPPET_T["UNKNOWNSLASHCOMMAND_COMMANDS"][2] = "|cffee4400".. GUPPET_S["AQUATICMOUNT"][2] .."|r -> ".. GUPPET_S["AQUATICMOUNT"][3] ;
+	GUPPET_T["UNKNOWNSLASHCOMMAND_COMMANDS"][3] = "|cffee4400".. GUPPET_S["AUTOGROUNDMOUNT"][2] .."|r -> ".. GUPPET_S["AUTOGROUNDMOUNT"][3]  ;
+	GUPPET_T["UNKNOWNSLASHCOMMAND_COMMANDS"][4] = "|cffee4400".. GUPPET_S["AUTOFLYMOUNT"][2] .."|r -> ".. GUPPET_S["AUTOFLYMOUNT"][3]  ;
+	GUPPET_T["UNKNOWNSLASHCOMMAND_COMMANDS"][5] = "|cffee4400".. GUPPET_S["MULTIGROUNDMOUNT"][2] .."|r -> ".. GUPPET_S["MULTIGROUNDMOUNT"][3]  ;
+	GUPPET_T["UNKNOWNSLASHCOMMAND_COMMANDS"][6] = "|cffee4400".. GUPPET_S["CALLCOMPANION"][2] .."|r -> ".. GUPPET_S["CALLCOMPANION"][3]  ;
+	GUPPET_T["UNKNOWNSLASHCOMMAND_COMMANDS"][7] = "|cffee4400".. GUPPET_S["OPTIONMENU"][2] .."|r -> ".. GUPPET_S["OPTIONMENU"][3]  ;
+	
+	-- Categories
+	GUPPET_C["GLOBALWORLD"]	=	"El mundo" ;
+	GUPPET_C["CITIES"]		=	"Ciudades" ;
+	GUPPET_C["INSTANCES"]	=	"Instancias" ;
+	GUPPET_C["ARENAS"]		=	"Arenas" ;
+	GUPPET_C["BATTLEGROUNDS"]	=	"Campos de batalla" ;
+	
 	-- Zones ( For autodetection system )
 	GUPPET_Z["SUPPORT"] = true ;
 	GUPPET_Z["WINTERGRASP"] = "Conquista del Invierno";
@@ -343,7 +487,7 @@ if (GetLocale() == "esES") then
 end
 
 -------------------------------------------------------------------------------
--- Spanish (Mexico) localization
+-- Spanish (Mexico) localization by Kancerberus-Drakkari
 -------------------------------------------------------------------------------
 
 if (GetLocale() == "esMX") then
@@ -440,13 +584,19 @@ if (GetLocale() == "esMX") then
 	
 	GUPPET_L["MAGE_SlowFall"] 	= { "Usar caida lenta si esta cayendo" , ""}
 	
+	GUPPET_L["PRIEST_Levitate"] 	= { "Usar levitar si esta caminando" , ""};
+	
+	GUPPET_L["HUNTER_Cheetah"]	= { "Usar aspecto del guepardo mientras esta caminando" , "" };
+	
+	GUPPET_L["Worgen_RunningWild"]	= { "Usar galopada salvaje en lugar de montura terrestre" , "" };
+	
 	GUPPET_L["DEATHKNIGHT_PathOfFrost"] 	= { "Usar Camino de hielo si esta nadando " , ""}
 	 
 	
 	GUPPET_L["INTERFACE_REMOVE"] = { "UD quiere que se remueva %s" , "Si", "No" };
 	GUPPET_L["INTERFACE_CHANGEMODE"] = { "Esta accion requiere recargar. Continuar ?" , "Si", "No" };
 	
-	GUPPET_L["INGAMEBUTTONS_AUTO"]		= { "Automatica" , " +Shift para forzar una terrestre |n +Ctrl para forzar una todoterreno" , " +Alt para usar Forma de viaje / Lobo fantasmal" };
+	GUPPET_L["INGAMEBUTTONS_AUTO"]		= { "Automatica" , " +Shift para forzar una terrestre |n +Ctrl para forzar una con pasajero" , " +Alt para usar Forma de viaje / Lobo fantasmal" };
 	GUPPET_L["INGAMEBUTTONS_GROUND"]	= { "Auto Terrestre" , "" };
 	GUPPET_L["INGAMEBUTTONS_FLY"]		= { "Auto voladora" , "" };
 	GUPPET_L["INGAMEBUTTONS_COMPANION"]	= { "Mascota de compañia aleatoria" , " +Shift para retirar" };
@@ -851,4 +1001,3 @@ end
 	GUPPET_C["M_INSTANCES"]		=	"Instances" ;
 	GUPPET_C["M_ARENAS"]		=	"Arenas" ;
 	GUPPET_C["M_BATTLEGROUNDS"]	=	"BattleGrounds" ;
-
