@@ -130,7 +130,7 @@ function GupPet_OnEvent(self, event, ...) --self, event, ...
 		
 		if GUPPET_Z["SUPPORT"] == false then  GupPet_Text( GUPPET_T["NOTSUPPORTED"] ) ; end
 				
-		--GupPet_UpdateDataList() ;
+		GupPet_UpdateDataList() ;
 		GupPet_UpdateClassDataList() ; -- CLASS 
 		
 		GupPet_Interface_UpdateLocationFrame() ;
