@@ -137,8 +137,8 @@ function GupPet_UpdateCompanionDataList()
 ]]
 	
 	-- Companions out off the new database ..
-    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_COLLECTED, true) -- displays pets we do have
-    C_PetJournal.SetFlagFilter(LE_PET_JOURNAL_FLAG_NOT_COLLECTED, false) -- ignores pets we don't have
+    C_PetJournal.SetFilterChecked(LE_PET_JOURNAL_FILTER_COLLECTED, true) -- displays pets we do have
+    C_PetJournal.SetFilterChecked(LE_PET_JOURNAL_FILTER_NOT_COLLECTED, false) -- ignores pets we don't have
     C_PetJournal.ClearSearchFilter() -- prevents the game from crashing
  
     local numPets = C_PetJournal.GetNumPets(false)

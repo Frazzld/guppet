@@ -1099,7 +1099,7 @@
 	</CheckButton>
 	
 	
-	<Frame name="GupPet_IconPopupFrame" toplevel="true" parent="GupPet_InterfaceOptionsFrame" movable="true" enableMouse="true" hidden="true">
+	<Frame name="GupPet_IconPopupFrame" parent="GupPet_InterfaceOptionsFrame" framestrata="DIALOG" movable="true" enableMouse="true" hidden="true">
 		<Size>
 			<AbsDimension x="297" y="280"/>
 		</Size>

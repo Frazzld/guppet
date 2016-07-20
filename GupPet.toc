@@ -1,7 +1,7 @@
-## Interface: 60200
+## Interface: 70000
 ## Title: GupPet
 ## Author: Gup(before 6.0), FlyNeko
-## Version: 6.2.3.03
+## Version: 7.0.3.00
 ## Notes: 
 ## DefaultState: Enabled
 ## LoadOnDemand: 0

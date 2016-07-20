@@ -11,14 +11,14 @@
 			 -->  30 = Snowball needed
 			 
 			
-GUPPET_CLASSDATA = { 	DRUID  = { Travel = 783 , Fly = 165962 , Bear = 5487 , Cat = 768 } , --33943
+GUPPET_CLASSDATA = { 	DRUID  = { Travel = 783 , Fly = 165962 , Cat = 768 } ,
 						SHAMAN = { Ghost = 2645 , WaterWalking = 546 },
-						HUNTER = { Pack = 13159 , Cheetah = 5118 , FeignDeath = 5384 , Camouflage = 51753 }, 
+						HUNTER = { Cheetah = 186257 , FeignDeath = 5384 , Camouflage = 199483 }, -- Camouflage 51753 -- Cheetah 5118
 						MAGE   = { SlowFall = 130,  Invisibility = 66},
 						PRIEST = { SpiritOfRedemption = 20711, Levitate = 1706 },
 						DEATHKNIGHT = { PathOfFrost = 3714},						
 					}
-GUPPET_RACEDATA = { 	Worgen = { Darkflight=68992 , RunningWild = 87840 } }
+GUPPET_RACEDATA = { 	Worgen = { RunningWild = 87840 } }
 
 GUPPET_ITEMDATA = { Food = 64355 ,
 					Drink = 57073,
@@ -42,15 +42,6 @@ GUPPET_ITEMDATA = { Food = 64355 ,
 						}
 			 		}
  
-
-GUPPET_COMPANIONDATA = {
-
-	---------------------------------------------------------------------------
-	[26533] = {[30] = true},		-- Father Winter's Helper
-	[26529]	= {[30] = true},		-- Winter Reindeer
-	[26541] = {[30] = true},		-- Winter's Little Helper
-	[26045] = {[30] = true},		-- Tiny Snowman
-}	;
 
 
 

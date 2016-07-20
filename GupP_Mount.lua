@@ -230,7 +230,6 @@ end
 ----------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------
 function GupPet_Mounten( MountType , Location   ) 
-
 	--Delay pet summoning so if you got a small amount off lag you wont get kicked off your mount again 
 	if GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed then
 		GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed = -3 ;
@@ -241,21 +240,31 @@ function GupPet_Mounten( MountType , Location   )
 	local _, _, _, completed = GetAchievementInfo(9909) -- Collect 35 Heirlooms
 	if not wasEarnedByMe and completed then 
 		local playerfaction = UnitFactionGroup("player");
-		for i = 1, C_MountJournal.GetNumMounts() do
-			local _, spellID, _, _, _, _, _, _, faction, hideOnChar, isCollected = C_MountJournal.GetMountInfo(i);
-			
-			if spellID == 179244 and  playerfaction == "Horde" then
-				C_MountJournal.Summon(i);
-				return;
-			end
-			if spellID == 179245 and playerfaction == "Alliance" then
-				C_MountJournal.Summon(i);
-				return;
-			end
+		local numMounts = C_MountJournal.GetNumMounts();
+		if numMounts == 0  then
+			return
 		end
+		
+		local counter = 0
+		local mountID = 0
+		
+		repeat
+			mountID = mountID + 1
+			local _, spellID, _, _, _, _, _, _, faction, hideOnChar, isCollected =C_MountJournal.GetMountInfoByID(mountID);
+			if spellID then
+				counter = counter + 1
+				if spellID == 179244 and  playerfaction == "Horde" then
+					C_MountJournal.SummonByID(mountID);
+					return;
+				end
+				if spellID == 179245 and playerfaction == "Alliance" then
+					C_MountJournal.SummonByID(mountID);
+					return;
+				end
+			end
+		until counter == numMounts
 	end
 	--|
-	
 	local MountSlots = { Total=0} ;
 
 	for i = 1 , GUPPET_SAVEDDATA[ MountType ]["Total"] do 
@@ -269,21 +278,31 @@ function GupPet_Mounten( MountType , Location   )
 			end
 		end
 	end
-
+		
 	if MountSlots.Total > 0 then
 	
 		local randomMount =  math.random( MountSlots.Total  ) ;
 		
 		
-		for i = 1, C_MountJournal.GetNumMounts() do
-            local _, spellID = C_MountJournal.GetMountInfo(i);
-			
-			if MountSlots[randomMount] == spellID then
-				
-                C_MountJournal.Summon(i);
-                return;
-            end
-        end
+		local numMounts = C_MountJournal.GetNumMounts();
+	
+		if numMounts == 0  then
+			return
+		end
 		
+		local counter = 0
+		local mountID = 0
+		
+		repeat
+			mountID = mountID + 1
+            local _, spellID = C_MountJournal.GetMountInfoByID(mountID);
+			if spellID then
+				counter = counter + 1
+				if MountSlots[randomMount] == spellID then				
+					C_MountJournal.SummonByID(mountID);
+					return;
+				end
+			end
+		until counter == numMounts
 	end
 end

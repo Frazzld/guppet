@@ -1061,7 +1061,7 @@ function GupPet_IconPopupFrame_Update(self)
 		texture = icons[index];
 		if ( index <= numIcons ) then
 			if(type(texture) == "number") then
-				PopupIcon:SetToFileData(texture);
+				PopupIcon:SetTexture(texture);
 			else
 				PopupIcon:SetTexture("INTERFACE\\ICONS\\"..texture);
 			end
@@ -1157,7 +1157,6 @@ end
 ----------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------
 function GupPet_IconPopupFrame_OnShow(self)
-
 	PlaySound("igCharacterInfoOpen");
 	GupPet_IconPopupFrame_TabClick();
 	GupPet_IconPopupFrame_Update(self);

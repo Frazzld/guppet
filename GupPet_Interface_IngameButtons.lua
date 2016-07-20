@@ -51,9 +51,7 @@ function GupPet_Interface_BuildMacro( self, option )
 	if GUPPET_TEMPCLASSDATA.Type == "HUNTER" and  option ~= "FLY"  then
 		
 		-- Place the hunter crap under alt
-		if GUPPET_TEMPCLASSDATA["Pack"]["Usable"] and GetNumSubgroupMembers() > 0 then
-			self:SetAttribute("alt-macrotext1", "/use "..GUPPET_TEMPCLASSDATA["Pack"]["Name"] );
-		elseif GUPPET_TEMPCLASSDATA["Cheetah"]["Usable"]  then	
+		if GUPPET_TEMPCLASSDATA["Cheetah"]["Usable"]  then	
 			self:SetAttribute("alt-macrotext1", "/use "..GUPPET_TEMPCLASSDATA["Cheetah"]["Name"] );
 		end
 		--Cheetah on moving
@@ -65,11 +63,7 @@ function GupPet_Interface_BuildMacro( self, option )
 		-- if you dont have any mounts
 		if GUPPET_SAVEDDATA.Ground.Total == 0 then
 			
-			if GUPPET_TEMPCLASSDATA["Pack"]["Usable"] and GetNumSubgroupMembers() > 0 then
-				self:SetAttribute("macrotext"		, "/use "..GUPPET_TEMPCLASSDATA["Pack"]["Name"]);
-				self:SetAttribute("shift-macrotext1", "/use "..GUPPET_TEMPCLASSDATA["Pack"]["Name"]);
-				self:SetAttribute("alt-macrotext1"	, "/use "..GUPPET_TEMPCLASSDATA["Pack"]["Name"]);
-			elseif GUPPET_TEMPCLASSDATA["Cheetah"]["Usable"]  then	
+			if GUPPET_TEMPCLASSDATA["Cheetah"]["Usable"]  then	
 				self:SetAttribute("macrotext"		, "/use "..GUPPET_TEMPCLASSDATA["Cheetah"]["Name"]);
 				self:SetAttribute("shift-macrotext1", "/use "..GUPPET_TEMPCLASSDATA["Cheetah"]["Name"]);
 				self:SetAttribute("alt-macrotext1"	, "/use "..GUPPET_TEMPCLASSDATA["Cheetah"]["Name"]);

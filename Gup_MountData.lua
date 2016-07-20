@@ -15,7 +15,7 @@
 			 
 --if Gup_MountDataVersion == nil or tonumber(Gup_MountDataVersion) < 1.13  then
 			 
-Gup_MountDataVersion = "6.2.2" ;
+Gup_MountDataVersion = "7.0.3" ;
 Gup_MountData = {
 
 -- GROUND MOUNTS ----------------------------------------------------------
@@ -122,7 +122,7 @@ Gup_MountData = {
 [63639]={[1]=true},--Exodar Elekk
 [5784]={[1]=true},--Felsteed
 [36702]={[1]=true},--Fiery Warhorse
-[101542]={[1]=true},--Flametalon of Alyzrazor
+[101542]={[1]=true},--Flametalon of Alysrazor
 [63643]={[1]=true},--Forsaken Warhorse
 [84751]={[1]=true},--Fossilized Raptor
 [17460]={[1]=true},--Frost Ram
@@ -563,7 +563,56 @@ Gup_MountData = {
 [64731]={[20]=true},--Sea Turtle
 [98718]={[20]=true},--Subdued Seahorse
 ---------------------------------------------------------------------------	
-	
+[148970]={[1]=true},--Felsteed
+[148972]={[1]=true},--Dreadsteed
+
+-- Legion 7.0.3 -----------------------------------------------------------
+[227956]={[1]=true},--Arcadian War Turtle
+[213115]={[1]=true},--Bloodfang Widow
+[213164]={[1]=true},--Brilliant Direbeak
+[214791]={[20]=true},--Brinedeep Bottom-Feeder
+[171840]={[1]=true},--Coldflame Infernal
+[227989]={[1]=true,[10]=true},--Cruel  Gladiator's Storm Dragon
+[227995]={[1]=true,[10]=true},--Demonic Gladiator's Storm Dragon
+[221885]={[1]=true},--Divine Steed
+[221887]={[1]=true},--Divine Steed
+[221883]={[1]=true},--Divine Steed
+[221886]={[1]=true},--Divine Steed
+[223018]={[20]=true},--Fathom Dweller
+[227988]={[1]=true},--Fearless Gladiator's Storm Dragon
+[215545]={[1]=true},--Fel Bat (Test) -- exist???
+[213134]={[1]=true},--Felblaze Infernal
+[200175]={[1]=true},--Felsaber
+[227991]={[1]=true,[10]=true},--Ferocious Gladiator's Storm Dragon
+[227994]={[1]=true,[10]=true},--Fierce Gladiator's Storm Dragon
+[213349]={[1]=true},--Flarecore Infernal
+[213350]={[1]=true},--Frostshard Infernal
+[213339]={[1]=true,[10]=true},--Great Northern Elderhorn -- fly?
+[193007]={[1]=true,[10]=true},--Grove Defiler -- fly?
+[171827]={[1]=true},--Hellfire Infernal
+[225765]={[1]=true,[10]=true},--Leyfeather Hippogryph
+[171850]={[1]=true},--Llothien Prowler
+[215159]={[1]=true,[10]=true},--Long-Forgotten Hippogryph
+[223814]={[1]=true,[10]=true},--Mechanized Lumber Extractor
+[213158]={[1]=true},--Predatory Bloodgazer
+[222240]={[1]=true},--Prestigious Azure Courser
+[222202]={[1]=true},--Prestigious Bronze Courser
+[222237]={[1]=true},--Prestigious Forest Courser
+[222238]={[1]=true},--Prestigious Ivory Courser
+[222241]={[1]=true},--Prestigious Midnight Courser
+[222236]={[1]=true},--Prestigious Royal Courser
+[193695]={[1]=true},--Prestigious War Steed
+[215558]={[1]=true},--Ratstallion
+[213163]={[1]=true},--Snowfeather Hunter
+[196681]={[1]=true,[10]=true},--Spirit of Eche'ro -- fly?
+[213209]={[1]=true},--Steelbound Devourer
+[223341]={[1]=true},--Vicious Gilnean Warhorse
+[223578]={[1]=true},--Vicious War Elekk
+[223354]={[1]=true},--Vicious War Trike7
+[223363]={[1]=true},--Vicious Warstrider
+[227986]={[1]=true,[10]=true},--Vindictive Gladiator's Storm Dragon
+[213165]={[1]=true},--Viridian Sharptalon
+---------------------------------------------------------------------------
 }	;
 
 --end

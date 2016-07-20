@@ -134,7 +134,7 @@ GUPPET_T = {} ;
 	GUPPET_T["CANTCALLAQUATICMOUNT"] = "No aquatic mount can be called ( None Enabled )" ;
 	GUPPET_T["DEBUGMODEON"] = "Debug mode ON";
 	GUPPET_T["DEBUGMODEOFF"] = "Debug mode OFF";
-	GUPPET_T["LOADED"] = "Loaded";
+	-- GUPPET_T["LOADED"] = "Loaded";
 	GUPPET_T["NOTSUPPORTED"] = "|cffee4400 Your language is not yet implemented. So the autodetection is disabled. ";
 	GUPPET_T["UNKNOWNSLASHCOMMAND"] = "|cffee4400 The slashcommand you entered is not correct.";
 	
@@ -282,7 +282,7 @@ if (GetLocale() == "frFR") then
 	GUPPET_T["CANTCALLAQUATICMOUNT"] = "Aucune monture aquatique ne peut être invoquée (toutes sont désactivées)" ;
 	GUPPET_T["DEBUGMODEON"] = "Mode de débug ON";
 	GUPPET_T["DEBUGMODEOFF"] = "Mode de débug OFF";
-	GUPPET_T["LOADED"] = "Chargé";
+	-- GUPPET_T["LOADED"] = "Chargé";
 	GUPPET_T["NOTSUPPORTED"] = "|cffee4400 Votre langue n'est pas encore implémentée. La détection automatique a été désactivée. ";
 	GUPPET_T["UNKNOWNSLASHCOMMAND"] = "|cffee4400 La commande « / » saisie n'existe pas. Consultez les commandes existantes dans menu d'options. |r ( /GupPet om )";
 
@@ -453,7 +453,7 @@ if (GetLocale() == "esES") then
 	GUPPET_T["CANTCALLAQUATICMOUNT"] = "No se puede llamar ninguna montura acuatica ( Ninguna activada )" ;
 	GUPPET_T["DEBUGMODEON"] = "Modo debug ENCENDIDO";
 	GUPPET_T["DEBUGMODEOFF"] = "Modo debug APAGAGO";
-	GUPPET_T["LOADED"] = "Cargado";
+	-- GUPPET_T["LOADED"] = "Cargado";
 	GUPPET_T["NOTSUPPORTED"] = "|cffee4400 Su lenguaje no es soportado. La autodeteccón de idioma podria estar desactivada. ";
 	GUPPET_T["UNKNOWNSLASHCOMMAND"] = "|cffee4400 La sintaxis del comando que has escrito no es correcta.";
 	
@@ -615,7 +615,7 @@ if (GetLocale() == "esMX") then
 	GUPPET_T["CANTCALLAQUATICMOUNT"] = "No se puede llamar ninguna montura acuatica ( Ninguna activada )" ;
 	GUPPET_T["DEBUGMODEON"] = "Modo debug ENCENDIDO";
 	GUPPET_T["DEBUGMODEOFF"] = "Modo debug APAGAGO";
-	GUPPET_T["LOADED"] = "Cargado";
+	-- GUPPET_T["LOADED"] = "Cargado";
 	GUPPET_T["NOTSUPPORTED"] = "|cffee4400 Su lenguaje no es soportado. La autodeteccón de idioma podria estar desactivada. ";
 	GUPPET_T["UNKNOWNSLASHCOMMAND"] = "|cffee4400 La sintaxis del comando que has escrito no es correcta.";
 	
@@ -775,7 +775,7 @@ if (GetLocale() == "ruRU") then
 	GUPPET_T["CANTCALLAQUATICMOUNT"] = "Невозможно вызвать водный траспорт ( нету включенных )" ;
 	GUPPET_T["DEBUGMODEON"] = "Режим отладки ВКЛ";
 	GUPPET_T["DEBUGMODEOFF"] = "Режим отладки ВЫКЛ";
-	GUPPET_T["LOADED"] = "Загружен";
+	-- GUPPET_T["LOADED"] = "Загружен";
 	GUPPET_T["NOTSUPPORTED"] = "|cffee4400 Ваш язык пока еще не реализован. Поэтому авто-определение отключено. ";
 	GUPPET_T["UNKNOWNSLASHCOMMAND"] = "|cffee4400 Слэш команду которую вы ввели не существует. Проверьте меню настроек на наличие доступных команд.";
 	
@@ -928,7 +928,7 @@ if (GetLocale() == "itIT") then
 	GUPPET_T["CANTCALLAQUATICMOUNT"] = "Nessuna cavalcatura acquatica puo' essere richiamata ( Nessuna Abilitata )" ;
 	GUPPET_T["DEBUGMODEON"] = "Debug mode ON";
 	GUPPET_T["DEBUGMODEOFF"] = "Debug mode OFF";
-	GUPPET_T["LOADED"] = "Caricato";
+	-- GUPPET_T["LOADED"] = "Caricato";
 	GUPPET_T["NOTSUPPORTED"] = "|cffee4400 La tua lingua non e' stata ancora implementata. Il rilevamento automatico e' stato disabilitato. ";
 	GUPPET_T["UNKNOWNSLASHCOMMAND"] = "|cffee4400 Il comando slash che hai digitato non e' corretto.";
 
