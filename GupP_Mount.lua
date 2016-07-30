@@ -240,19 +240,13 @@ function GupPet_Mounten( MountType , Location   )
 	local _, _, _, completed = GetAchievementInfo(9909) -- Collect 35 Heirlooms
 	if not wasEarnedByMe and completed then 
 		local playerfaction = UnitFactionGroup("player");
-		local numMounts = C_MountJournal.GetNumMounts();
-		if numMounts == 0  then
+		if C_MountJournal.GetNumMounts() == 0  then
 			return
 		end
 		
-		local counter = 0
-		local mountID = 0
-		
-		repeat
-			mountID = mountID + 1
+		for i, mountID in ipairs(C_MountJournal.GetMountIDs()) do
 			local _, spellID, _, _, _, _, _, _, faction, hideOnChar, isCollected =C_MountJournal.GetMountInfoByID(mountID);
 			if spellID then
-				counter = counter + 1
 				if spellID == 179244 and  playerfaction == "Horde" then
 					C_MountJournal.SummonByID(mountID);
 					return;
@@ -262,7 +256,7 @@ function GupPet_Mounten( MountType , Location   )
 					return;
 				end
 			end
-		until counter == numMounts
+		end
 	end
 	--|
 	local MountSlots = { Total=0} ;
@@ -283,26 +277,18 @@ function GupPet_Mounten( MountType , Location   )
 	
 		local randomMount =  math.random( MountSlots.Total  ) ;
 		
-		
-		local numMounts = C_MountJournal.GetNumMounts();
-	
-		if numMounts == 0  then
+			
+		if C_MountJournal.GetNumMounts() == 0  then
 			return
 		end
-		
-		local counter = 0
-		local mountID = 0
-		
-		repeat
-			mountID = mountID + 1
+		for i, mountID in ipairs(C_MountJournal.GetMountIDs()) do
             local _, spellID = C_MountJournal.GetMountInfoByID(mountID);
 			if spellID then
-				counter = counter + 1
 				if MountSlots[randomMount] == spellID then				
 					C_MountJournal.SummonByID(mountID);
 					return;
 				end
 			end
-		until counter == numMounts
+		end
 	end
 end

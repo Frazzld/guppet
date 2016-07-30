@@ -272,7 +272,7 @@ function GupPet_OnEvent(self, event, ...) --self, event, ...
 	
 		self:UnregisterEvent("PET_JOURNAL_LIST_UPDATE");
 	
-	elseif event == "LEARNED_SPELL_IN_TAB" or event == "GLYPH_REMOVED" then 
+	elseif event == "LEARNED_SPELL_IN_TAB"  then 
 		
 		GupPet_UpdateClassDataList() ;
 		
@@ -514,75 +514,67 @@ function GupPet_UpdateDataList()
 
 	local	GUPPET_SAVEDDATA_TEMP = { Ground = { Total=0  } , Fly = { Total=0} , Multi = { Total=0}, Aquatic = { Total=0} , Unknown= { Total=0} , Companion = { Total=0}  } ;
 		
-	local numMounts = C_MountJournal.GetNumMounts();
 	
-	if numMounts == 0  then
+	if C_MountJournal.GetNumMounts() == 0  then
 		return
 	end
 	
-	local counter = 0
-	local mountID = 0
 	
-	repeat
 --	7.0.3
 --	creatureName, spellID, icon, active, isUsable, sourceType, isFavorite, isFactionSpecific, faction, isFiltered, isCollected, mountID = C_MountJournal.GetDisplayedMountInfo(index);
 --	creatureName, spellID, icon, active, isUsable, sourceType, isFavorite, isFactionSpecific, faction, isFiltered, isCollected, mountID  = C_MountJournal.GetMountInfoByID(mountID);
 --	creatureDisplayID, descriptionText, sourceText, isSelfMount, mountType = C_MountJournal.GetMountInfoExtraByID(mountID);
 
-		mountID = mountID + 1
-		
+	for i, mountID in ipairs(C_MountJournal.GetMountIDs()) do
 		local creatureName, creatureSpellID, _, _, _, _, _, isFactionSpecific, faction, hideOnChar, isCollected  = C_MountJournal.GetMountInfoByID(mountID)
 		
-		if creatureSpellID then
-			counter = counter + 1
-			local creatureID = C_MountJournal.GetMountInfoExtraByID(mountID);
---			local detected = false ;
+		local creatureID = C_MountJournal.GetMountInfoExtraByID(mountID);
+--		local detected = false ;
 		
-			if GupPet_IsMountUsable(mountID, creatureSpellID, isFactionSpecific, faction, hideOnChar, isCollected, profEngineer, profTailor, profLeather) then
-				for DBMountID, DBMountData in pairs(Gup_MountData) do
+		if GupPet_IsMountUsable(mountID, creatureSpellID, isFactionSpecific, faction, hideOnChar, isCollected, profEngineer, profTailor, profLeather) then
+			for DBMountID, DBMountData in pairs(Gup_MountData) do
+		
+				if DBMountID == creatureSpellID then
 			
-					if DBMountID == creatureSpellID then
-				
-						if DBMountData[1] then
---							detected = true ;
-							GUPPET_SAVEDDATA_TEMP["Ground"]["Total"] = GUPPET_SAVEDDATA_TEMP["Ground"]["Total"] + 1 ;
-							GUPPET_SAVEDDATA_TEMP["Ground"][ GUPPET_SAVEDDATA_TEMP["Ground"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = GupPet_CheckWeightData( "Ground" , creatureSpellID )  }
-						end
-					
-						if DBMountData[30] then
---							detected = true ;
-							GUPPET_SAVEDDATA_TEMP["Multi"]["Total"] = GUPPET_SAVEDDATA_TEMP["Multi"]["Total"] + 1 ;
-							GUPPET_SAVEDDATA_TEMP["Multi"][ GUPPET_SAVEDDATA_TEMP["Multi"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = GupPet_CheckWeightData( "Multi" , creatureSpellID )  }
-						end
-				
-						if DBMountData[10] then
---							detected = true ;
-							GUPPET_SAVEDDATA_TEMP["Fly"]["Total"] = GUPPET_SAVEDDATA_TEMP["Fly"]["Total"] + 1 ;
-							GUPPET_SAVEDDATA_TEMP["Fly"][ GUPPET_SAVEDDATA_TEMP["Fly"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = GupPet_CheckWeightData( "Fly" , creatureSpellID )  }
-						end
-					
-						if DBMountData[20] then
---							detected = true ;
-							GUPPET_SAVEDDATA_TEMP["Aquatic"]["Total"] = GUPPET_SAVEDDATA_TEMP["Aquatic"]["Total"] + 1 ;
-							GUPPET_SAVEDDATA_TEMP["Aquatic"][ GUPPET_SAVEDDATA_TEMP["Aquatic"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = GupPet_CheckWeightData( "Aquatic" , creatureSpellID )  }
-						end
-						
-						if not( DBMountData[1] and DBMountData[10] ) and DBMountData[10] then
-							GupPet_Temp_CanFly = GUPPET_SAVEDDATA_TEMP["Fly"]["Total"] ;
-						end
-						
-						if not(DBMountData[1]) and not(DBMountData[10]) and not(DBMountData[20]) and not (DBMountData[30]) then
-							GUPPET_SAVEDDATA_TEMP["Unknown"]["Total"] = GUPPET_SAVEDDATA_TEMP["Unknown"]["Total"] + 1 ;
-							GUPPET_SAVEDDATA_TEMP["Unknown"][ GUPPET_SAVEDDATA_TEMP["Unknown"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = {}  }
-						end
-						
-						break; -- SpeedUp
-					
+					if DBMountData[1] then
+--						detected = true ;
+						GUPPET_SAVEDDATA_TEMP["Ground"]["Total"] = GUPPET_SAVEDDATA_TEMP["Ground"]["Total"] + 1 ;
+						GUPPET_SAVEDDATA_TEMP["Ground"][ GUPPET_SAVEDDATA_TEMP["Ground"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = GupPet_CheckWeightData( "Ground" , creatureSpellID )  }
 					end
+				
+					if DBMountData[30] then
+--						detected = true ;
+						GUPPET_SAVEDDATA_TEMP["Multi"]["Total"] = GUPPET_SAVEDDATA_TEMP["Multi"]["Total"] + 1 ;
+						GUPPET_SAVEDDATA_TEMP["Multi"][ GUPPET_SAVEDDATA_TEMP["Multi"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = GupPet_CheckWeightData( "Multi" , creatureSpellID )  }
+					end
+			
+					if DBMountData[10] then
+--						detected = true ;
+						GUPPET_SAVEDDATA_TEMP["Fly"]["Total"] = GUPPET_SAVEDDATA_TEMP["Fly"]["Total"] + 1 ;
+						GUPPET_SAVEDDATA_TEMP["Fly"][ GUPPET_SAVEDDATA_TEMP["Fly"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = GupPet_CheckWeightData( "Fly" , creatureSpellID )  }
+					end
+				
+					if DBMountData[20] then
+--						detected = true ;
+						GUPPET_SAVEDDATA_TEMP["Aquatic"]["Total"] = GUPPET_SAVEDDATA_TEMP["Aquatic"]["Total"] + 1 ;
+						GUPPET_SAVEDDATA_TEMP["Aquatic"][ GUPPET_SAVEDDATA_TEMP["Aquatic"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = GupPet_CheckWeightData( "Aquatic" , creatureSpellID )  }
+					end
+					
+					if not( DBMountData[1] and DBMountData[10] ) and DBMountData[10] then
+						GupPet_Temp_CanFly = GUPPET_SAVEDDATA_TEMP["Fly"]["Total"] ;
+					end
+					
+					if not(DBMountData[1]) and not(DBMountData[10]) and not(DBMountData[20]) and not (DBMountData[30]) then
+						GUPPET_SAVEDDATA_TEMP["Unknown"]["Total"] = GUPPET_SAVEDDATA_TEMP["Unknown"]["Total"] + 1 ;
+						GUPPET_SAVEDDATA_TEMP["Unknown"][ GUPPET_SAVEDDATA_TEMP["Unknown"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = mountID , Weight = {}  }
+					end
+					
+					break; -- SpeedUp
+				
 				end
 			end
 		end
-	until counter == numMounts	
+	end
 --		if detected == false then
 		
 		

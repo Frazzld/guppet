@@ -574,10 +574,6 @@ Gup_MountData = {
 [171840]={[1]=true},--Coldflame Infernal
 [227989]={[1]=true,[10]=true},--Cruel  Gladiator's Storm Dragon
 [227995]={[1]=true,[10]=true},--Demonic Gladiator's Storm Dragon
-[221885]={[1]=true},--Divine Steed
-[221887]={[1]=true},--Divine Steed
-[221883]={[1]=true},--Divine Steed
-[221886]={[1]=true},--Divine Steed
 [223018]={[20]=true},--Fathom Dweller
 [227988]={[1]=true},--Fearless Gladiator's Storm Dragon
 [215545]={[1]=true},--Fel Bat (Test) -- exist???
