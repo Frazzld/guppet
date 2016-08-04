@@ -22,6 +22,8 @@ GUPPET_TEMPRACEDATA = { Type = ""} ; -- "Worgen"
 tinsert(UIMenus, "GupPet_InterfaceOptionsFrame");
 tinsert(UIMenus, "GupPet_IconPopupFrame");
 
+
+local table_sort = table.sort
 ----------------------------------------------------------------------------------------------------------------
 --[[	GupPet_SlashCommand			 																		]]--
 ----------------------------------------------------------------------------------------------------------------
@@ -101,8 +103,6 @@ function GupPet_OnLoad(self)
 	self:RegisterEvent("CHAT_MSG_ADDON");			-- Listen for a Update spam message
 	
 	self:RegisterEvent("PLAYER_REGEN_DISABLED");
-	
-	--self:RegisterEvent("MOUNT_JOURNAL_USABILITY_CHANGED");
 	
 	-- Newly added --
 	self:RegisterEvent("PET_JOURNAL_LIST_UPDATE");
@@ -219,11 +219,6 @@ function GupPet_OnEvent(self, event, ...) --self, event, ...
 		GupPet_UpdateDataList() ;
 		GupPet_Interface_UpdateLocationFrame() ;
 	
-	-- elseif event == "MOUNT_JOURNAL_USABILITY_CHANGED" then
-
-		-- GupPet_UpdateDataList() ;
-		-- GupPet_Interface_UpdateLocationFrame() ;
-	
 	elseif event == "UI_ERROR_MESSAGE" then
 		
 		local arg1 = ... ;
@@ -270,8 +265,8 @@ function GupPet_OnEvent(self, event, ...) --self, event, ...
 		
 	elseif event == "PET_JOURNAL_LIST_UPDATE" then
 	
-		self:UnregisterEvent("PET_JOURNAL_LIST_UPDATE");
-	
+		GupPet_UpdateCompanionDataList()
+		
 	elseif event == "LEARNED_SPELL_IN_TAB"  then 
 		
 		GupPet_UpdateClassDataList() ;
@@ -503,6 +498,8 @@ end
 --[[	GupPet_UpdateDataList				 																]]--
 ----------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------
+local function SortFunc(a,b) return a.Name < b.Name end
+
 function GupPet_UpdateDataList()
 
 	-- Update Companion list
@@ -575,7 +572,7 @@ function GupPet_UpdateDataList()
 			end
 		end
 	end
---		if detected == false then
+--[[		if detected == false then
 		
 		
 				-- -- Flying mount --
@@ -604,16 +601,21 @@ function GupPet_UpdateDataList()
 		
 --			GUPPET_SAVEDDATA_TEMP["Unknown"]["Total"] = GUPPET_SAVEDDATA_TEMP["Unknown"]["Total"] + 1 ;
 --			GUPPET_SAVEDDATA_TEMP["Unknown"][ GUPPET_SAVEDDATA_TEMP["Unknown"]["Total"] ] =  { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID ,Slot = slot , Weight = {}  }
---		end
+--		end]]
 		
 	
 
 	 
 	GUPPET_SAVEDDATA["Ground"] = GUPPET_SAVEDDATA_TEMP["Ground"]
+	table_sort(GUPPET_SAVEDDATA["Ground"],SortFunc)
 	GUPPET_SAVEDDATA["Multi"] = GUPPET_SAVEDDATA_TEMP["Multi"] ;
+	table_sort(GUPPET_SAVEDDATA["Multi"],SortFunc)
 	GUPPET_SAVEDDATA["Fly"] = GUPPET_SAVEDDATA_TEMP["Fly"] ;
+	table_sort(GUPPET_SAVEDDATA["Fly"],SortFunc)
 	GUPPET_SAVEDDATA["Aquatic"] = GUPPET_SAVEDDATA_TEMP["Aquatic"] ;
+	table_sort(GUPPET_SAVEDDATA["Aquatic"],SortFunc)
 	GUPPET_SAVEDDATA["Unknown"] = GUPPET_SAVEDDATA_TEMP["Unknown"] ;
+	table_sort(GUPPET_SAVEDDATA["Unknown"],SortFunc)
 	
 	GUPPET_SAVEDDATA["Ground"]["TotalWeight"] = GupPet_CheckWeightDataTotal( "Ground" ) ;
 	GUPPET_SAVEDDATA["Multi"]["TotalWeight"] = GupPet_CheckWeightDataTotal( "Multi" ) ;

@@ -1,4 +1,4 @@
-
+local table_sort = table.sort
 ----------------------------------------------------------------------------------------------------------------
 --[[	GupPet_PreCallCompanion				 																]]--
 ----------------------------------------------------------------------------------------------------------------
@@ -153,7 +153,13 @@ function GupPet_UpdateCompanionDataList()
             creatureID, sourceText, description, isWildPet = C_PetJournal.GetPetInfoByIndex(i, false)
 
 		GUPPET_SAVEDDATA_TEMP["Companion"]["Total"] = GUPPET_SAVEDDATA_TEMP["Companion"]["Total"] + 1 ;
-		GUPPET_SAVEDDATA_TEMP["Companion"][ GUPPET_SAVEDDATA_TEMP["Companion"]["Total"] ] = { Name = creatureName , Id = creatureSpellID, CreatureID = creatureID,  Weight = GupPet_CheckWeightData( "Companion" , creatureSpellID ) } ;
+		local name
+		if customName then
+			name = customName.." ("..creatureName..")"
+		else
+			name = creatureName
+		end
+		GUPPET_SAVEDDATA_TEMP["Companion"][ GUPPET_SAVEDDATA_TEMP["Companion"]["Total"] ] = { Name = name, Id = creatureSpellID, CreatureID = creatureID, Weight = GupPet_CheckWeightData( "Companion" , creatureSpellID ) } ;
 
 		
 	   
@@ -166,6 +172,7 @@ function GupPet_UpdateCompanionDataList()
 	
 	
 	GUPPET_SAVEDDATA["Companion"] = GUPPET_SAVEDDATA_TEMP["Companion"] ;
+	table_sort(GUPPET_SAVEDDATA["Companion"], function(a,b) return a.Name < b.Name end)
 	GUPPET_SAVEDDATA["Companion"]["TotalWeight"] = GupPet_CheckWeightDataTotal( "Companion" ) ;
 
 	
