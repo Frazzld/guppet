@@ -5,7 +5,7 @@ GUPPET_SAVEDDATA = { Ground = { Total=0  } , Fly = { Total=0} , Aquatic = { Tota
 
 GUPPET_SAVEDLOCATIONS = { [GUPPET_C["M_GLOBALWORLD"]] = 0 , [GUPPET_C["M_CITIES"]] = 10 , [GUPPET_C["M_INSTANCES"]] = 20 , [GUPPET_C["M_ARENAS"]] =30 , [GUPPET_C["M_BATTLEGROUNDS"]] = 40  };
 
-GUPPET_OPTIONS = { Debug = false , Mode = "Expert_", NewVersion = 0 , PreviewFrameSpeed = 1, PreviewFrameStartPos = 0,
+GUPPET_OPTIONS = { Debug = false , Mode = "Expert_", NewVersion = 0 , PreviewFrameSpeed = 1, PreviewFrameStartPos = 0, NewLearnedOn = true,
 						AutoCompanion 	= { Resummon = 0, Enabled = false, Delay = 2, City = true , Arena = true , BattleGround = true , Outside = true , Party = true , Raid = true, DismissMounted = false,
 												PetOfTheDay = { Enabled = false , Month = 0 , Day = 0, Year = 0 , PetId = 0 }
 											}, 
@@ -104,8 +104,8 @@ function GupPet_OnLoad(self)
 	
 	self:RegisterEvent("PLAYER_REGEN_DISABLED");
 	
-	-- Newly added --
-	self:RegisterEvent("PET_JOURNAL_LIST_UPDATE");
+	self:RegisterEvent("UPDATE_SUMMONPETS_ACTION")
+	self:RegisterEvent("PET_JOURNAL_PET_DELETED")
 	self.TotalElapsed = 0;
 	self:SetScript("OnUpdate", GupPet_UpdateCompanionDataListTime  ) ;
 end
@@ -172,7 +172,10 @@ function GupPet_OnEvent(self, event, ...) --self, event, ...
 									Class 			= { FlyForm = true , AquaticForm = true  }  
 								} ;
 			end
-					
+	
+
+			if GUPPET_OPTIONS.NewLearnedOn == nil then GUPPET_OPTIONS.NewLearnedOn = true end
+			
 			if not GUPPET_OPTIONS.NewVersion then GUPPET_OPTIONS.NewVersion = 0 ; end
 			if not GUPPET_OPTIONS.PreviewFrameSpeed then GUPPET_OPTIONS.PreviewFrameSpeed = 1; end
 			if not GUPPET_OPTIONS.PreviewFrameStartPos then GUPPET_OPTIONS.PreviewFrameStartPos = 0; end
@@ -213,12 +216,6 @@ function GupPet_OnEvent(self, event, ...) --self, event, ...
 			
 		end
 		
-	elseif event == "COMPANION_LEARNED" then
-
-		GupPet_Debug( "New Pet/Mount" );
-		GupPet_UpdateDataList() ;
-		GupPet_Interface_UpdateLocationFrame() ;
-	
 	elseif event == "UI_ERROR_MESSAGE" then
 		
 		local arg1 = ... ;
@@ -263,9 +260,22 @@ function GupPet_OnEvent(self, event, ...) --self, event, ...
 			self:UnregisterEvent("COMPANION_UPDATE");
 		end
 		
-	elseif event == "PET_JOURNAL_LIST_UPDATE" then
+	elseif event == "COMPANION_LEARNED" then
+
+		GupPet_Debug( "New Pet/Mount" );
+		GupPet_UpdateDataList() ;
+		GupPet_Interface_UpdateLocationFrame() ;
+	
+			
+	elseif event == "UPDATE_SUMMONPETS_ACTION" then
 	
 		GupPet_UpdateCompanionDataList()
+		GupPet_Interface_UpdateLocationFrame()
+		
+	elseif event == "PET_JOURNAL_PET_DELETED" then
+	
+		GupPet_UpdateCompanionDataList()
+		GupPet_Interface_UpdateLocationFrame()
 		
 	elseif event == "LEARNED_SPELL_IN_TAB"  then 
 		
@@ -788,7 +798,11 @@ function GupPet_CheckWeightData( MountType , MountSpellID )
 		for  Location in pairs(GUPPET_SAVEDLOCATIONS) do
 			
 			if Location == GUPPET_C["M_GLOBALWORLD"] then
-				GUPPET_SAVEDLOCATIONS_TEMP[Location] = 1 ;				
+				if GUPPET_OPTIONS.NewLearnedOn then
+					GUPPET_SAVEDLOCATIONS_TEMP[Location] = 1 ;	
+				else
+					GUPPET_SAVEDLOCATIONS_TEMP[Location] = 0
+				end
 			else
 				GUPPET_SAVEDLOCATIONS_TEMP[Location] = 0 ;				
 			end

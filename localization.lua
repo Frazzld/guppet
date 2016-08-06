@@ -60,6 +60,7 @@ GUPPET_T = {} ;
 
 	GUPPET_L["BUTTONMODE"]	= { "Mount button auto" , "Change the amount of buttons from one to two", "If you are seeing this message your client language is not supported" };
 	GUPPET_L["EXPERTMODE"]	= { "Expert Mode" , "Change the mode to expert user where you can set even more vars to random your pets" };
+	GUPPET_L["NEWLEARNEDON"] = "Auto enable New \nmounts/companions"
 	GUPPET_L["BUTTONALIGNMENT"]	= { "Alignment" , "Toggle the button alignment from horizontal to vertical" };
 	GUPPET_L["HIDEKEYBINDTEXT"] = { "Hide keybind" , "Hides the keybind text on the buttons when checked"  }
 	
@@ -702,6 +703,7 @@ if (GetLocale() == "ruRU") then
 	--
 	GUPPET_L["BUTTONMODE"]	= { "Авто кнопки транспорта" , "Изменяет число кнопок от одной до двух", "Если вы видите это сообщение, язык вашего клиента не поддерживается" };
 	GUPPET_L["EXPERTMODE"]	= { "Режим мастера" , "Переход в режим для опытного пользователя, где можно изменить приоритеты ваших случайных спутников/транспорта" };
+	GUPPET_L["NEWLEARNEDON"] = "Авто включать новых \nмаунтов/петов"
 	GUPPET_L["BUTTONALIGNMENT"]	= { "Выравнивание" , "Переключение выравнивания кнопок с горизонтального на вертикальный" };
 	GUPPET_L["HIDEKEYBINDTEXT"] = { "Скрыть назначения" , "Если отмечено, скрывает текст назначения клавиш на кнопках"  };
 	

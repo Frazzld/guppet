@@ -322,7 +322,7 @@ function GupPet_Interface_Option()
 		-- Extra
 		GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame = CreateFrame("FRAME", "GupPet_ExtraFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate");
  		GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame:SetWidth(180);
-		GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame:SetHeight(70);	
+		GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame:SetHeight(100);	
 		GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame:SetPoint("TOPRIGHT", -10 , -30);
 		_G["GupPet_ExtraFrame" .. "SubTitle"]:SetText("|cFFFC830E".. GUPPET_L["EXTRA"][1]) ;			 
 				 
@@ -338,7 +338,14 @@ function GupPet_Interface_Option()
 		GUPPET_INTERFACE_OPTIONFRAME.ExpertMode:SetScript("OnClick", function (self, button, down)  StaticPopup_Show ("GupPet_Interface_ChangeMode");   end);
 		GUPPET_INTERFACE_OPTIONFRAME.ExpertMode:SetChecked(  GUPPET_OPTIONS.Mode == "Expert" ); 
 		_G["GupPet_ExpertMode" .. "Text"]:SetText( GUPPET_L["EXPERTMODE"][1]  ) ;
-		GUPPET_INTERFACE_OPTIONFRAME.ExpertMode.tooltipText = GUPPET_L["EXPERTMODE"][2] ;	
+		GUPPET_INTERFACE_OPTIONFRAME.ExpertMode.tooltipText = GUPPET_L["EXPERTMODE"][2] ;
+		
+		
+		GUPPET_INTERFACE_OPTIONFRAME.NewLearnedOn = CreateFrame("CheckButton", "GupPet_NewLearnedOn", GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame, "OptionsSmallCheckButtonTemplate")
+		GUPPET_INTERFACE_OPTIONFRAME.NewLearnedOn:SetPoint("TOPLEFT", 10, -60 )
+		GUPPET_INTERFACE_OPTIONFRAME.NewLearnedOn:SetScript("OnClick", function(self, button, down) GUPPET_OPTIONS["NewLearnedOn"] = self:GetChecked() end)
+		GUPPET_INTERFACE_OPTIONFRAME.NewLearnedOn:SetChecked(  GUPPET_OPTIONS["NewLearnedOn"] )
+		_G["GupPet_NewLearnedOn" .. "Text"]:SetText( GUPPET_L["NEWLEARNEDON"] )
 
 		----------------------------------------------------------------------------
 		----------------------------------------------------------------------------
