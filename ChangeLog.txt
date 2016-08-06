@@ -1,4 +1,11 @@
 ------------------------------------------------------------------------
+------- v 7.0.3.04
+------------------------------------------------------------------------
+- Option to auto enable/not enable new mounts/companions.
+	By default it's ON, to match the previous behavior. You can find it in Extra section of settings.
+- Fixed updating of list , when companion learned/caged. It still not properly updated when you rename companion.
+
+-------------------------------------------------------------------------
 ------- v 7.0.3.03
 ------------------------------------------------------------------------
 - Mount & Companion lists again sorted
