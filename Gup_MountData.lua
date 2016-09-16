@@ -94,7 +94,6 @@ Gup_MountData = {
 [171848]={[1]=true},--Challenger's War Yeti
 [171846]={[1]=true},--Champion's Treadblade
 [6648]={[1]=true},--Chestnut Mare
-[171847]={[1]=true},--Cindermane Charger
 [189364]={[1]=true},--Coalfist Gronnling
 [138423]={[1]=true},--Cobalt Primordial Direhorn
 [39315]={[1]=true},--Cobalt Riding Talbuk
@@ -402,6 +401,7 @@ Gup_MountData = {
 [124550]={[10]=true},--Cataclysmic Gladiator's Twilight Drake
 [75614]={[1]=true,[10]=true},--Celestial Steed
 [43927]={[10]=true},--Cenarion War Hippogryph
+[171847]={[1]=true,[10]=true},--Cindermane Charger
 [139448]={[10]=true},--Clutch of Ji-Kun
 [41515]={[10]=true},--Cobalt Netherwing Drake
 [183117]={[1]=true,[10]=true},--Corrupted Dreadwing
