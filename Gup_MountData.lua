@@ -600,7 +600,7 @@ Gup_MountData = {
 [193695]={[1]=true},--Prestigious War Steed
 [215558]={[1]=true},--Ratstallion
 [213163]={[1]=true},--Snowfeather Hunter
-[196681]={[1]=true,[10]=true},--Spirit of Eche'ro -- fly?
+[196681]={[1]=true},--Spirit of Eche'ro
 [213209]={[1]=true},--Steelbound Devourer
 [223341]={[1]=true},--Vicious Gilnean Warhorse
 [223578]={[1]=true},--Vicious War Elekk
