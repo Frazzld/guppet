@@ -15,7 +15,7 @@
 			 
 --if Gup_MountDataVersion == nil or tonumber(Gup_MountDataVersion) < 1.13  then
 			 
-Gup_MountDataVersion = "7.0.3" ;
+Gup_MountDataVersion = "7.1.0" ;
 Gup_MountData = {
 
 -- GROUND MOUNTS ----------------------------------------------------------
@@ -609,6 +609,13 @@ Gup_MountData = {
 [227986]={[1]=true,[10]=true},--Vindictive Gladiator's Storm Dragon
 [213165]={[1]=true},--Viridian Sharptalon
 ---------------------------------------------------------------------------
+-- 7.1.0
+[230987]={[1]=true,[10]=true},--Arcanist's Manasaber
+[228919]={[20]=true},--Darkwater Skate
+[229499]={[1]=true},--Midnight
+[230844]={[1]=true},--Rockspine Basilisk
+[231428]={[10]=true},--Smoldering Ember Wyrm
+[230401]={[1]=true},--White Hawkstrider
 }	;
 
 --end
