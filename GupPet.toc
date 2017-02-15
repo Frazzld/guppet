@@ -1,11 +1,13 @@
 ## Interface: 70100
 ## Title: GupPet
 ## Author: Gup(before 6.0), FlyNeko
-## Version: 7.1.5.01
+## Version: 7.1.5.02
 ## Notes: 
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 ## SavedVariablesPerCharacter: GUPPET_SAVEDDATA, GUPPET_SAVEDLOCATIONS, GUPPET_OPTIONS 
+
+libs\LibStub\LibStub.lua
 
 localization.lua
 
