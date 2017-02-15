@@ -1,3 +1,7 @@
 manual-changelog:
-    filename: CHANGELOG.txt
-    markup-type: creole
+  filename: CHANGELOG.txt
+  markup-type: markdown
+
+ignore:
+  - CHANGELOG.txt
+  - Old_ChangeLog.txt
