@@ -4,18 +4,28 @@
 ----------------------------------------------------------------------------------------------------------------
 --[[
 	The Mounts are split in speeds/type by there spellid for less cpu power then extract it out of the tooltip.
-	
+
 	--GROUND--		--FLY--		--AQUATIC--		--SPECIAL--
-	1 				10 			20 				30 
-		
+	1 				10 			20 				30
+
 	21 = SeaLegs
 	2  = Aq40
-	
-]]			
-			 
---if Gup_MountDataVersion == nil or tonumber(Gup_MountDataVersion) < 1.13  then
-			 
-Gup_MountDataVersion = "7.1.0" ;
+
+]]
+
+--Ingame check for nonlisted mounts
+--[[ 
+local ignore = {459,468,578,579,581,6896,8980,10795,15780,25863,26655,33630,48954,55164,66122,66123,66124,127213,194046} --not in game
+for i, id in ipairs(C_MountJournal.GetMountIDs()) do
+   local name, spell = C_MountJournal.GetMountInfoByID(id)
+   local _, _, sourceText, _, mountType = C_MountJournal.GetMountInfoExtraByID(id)
+   if Gup_MountData[spell]==nil and not tContains(ignore,spell) then
+      print(id,name,spell,sourceText,mountType)
+   end
+end 
+]]
+
+-- Gup_MountDataVersion = "7.1.5" ;
 Gup_MountData = {
 
 -- GROUND MOUNTS ----------------------------------------------------------
@@ -72,7 +82,6 @@ Gup_MountData = {
 [127287]={[1]=true},--Blue Dragon Turtle
 [35020]={[1]=true},--Blue Hawkstrider
 [10969]={[1]=true},--Blue Mechanostrider
-[25953]={[1]=true,[2]=true},--Blue Qiraji Battle Tank
 [129934]={[1]=true},--Blue Shado-Pan Riding Tiger
 [17463]={[1]=true},--Blue Skeletal Horse
 [64656]={[1]=true},--Blue Skeletal Warhorse
@@ -83,7 +92,7 @@ Gup_MountData = {
 [43899]={[1]=true},--Brewfest Ram
 [190690]={[1]=true},--Bristling Hellboar
 [127288]={[1]=true},--Brown Dragon Turtle
-[34406]={[1]=true},--Brown Elekk	
+[34406]={[1]=true},--Brown Elekk
 [458]={[1]=true},--Brown Horse
 [18990]={[1]=true},--Brown Kodo
 [6899]={[1]=true},--Brown Ram
@@ -132,8 +141,8 @@ Gup_MountData = {
 [171635]={[1]=true},--Giant Coldsnout
 [63638]={[1]=true},--Gnomeregan Mechanostrider
 [89520]={[1]=true},--Goblin Mini Hotrod
-[87090]={[1]=true},--Goblin Trike 
-[87091]={[1]=true},--Goblin Turbo-Trike 
+[87090]={[1]=true},--Goblin Trike
+[87091]={[1]=true},--Goblin Turbo-Trike
 [90621]={[1]=true},--Golden King
 [140249]={[1]=true},--Golden Primal Direhorn
 [127176]={[1]=true},--Golden Riding Crane
@@ -167,7 +176,6 @@ Gup_MountData = {
 [18991]={[1]=true},--Green Kodo
 [17453]={[1]=true},--Green Mechanostrider
 [138643]={[1]=true},--Green Primal Raptor
-[26056]={[1]=true,[2]=true},--Green Qiraji Battle Tank
 [129932]={[1]=true},--Green Shado-Pan Riding Tiger
 [17465]={[1]=true},--Green Skeletal Warhorse
 [88750]={[1]=true},--Grey Riding Camel
@@ -187,7 +195,7 @@ Gup_MountData = {
 [93644]={[1]=true},--Kor'kron Annihilator
 [148417]={[1]=true},--Kor'kron Juggernaut
 [148396]={[1]=true},--Kor'kron War Wolf
-[65917]={[1]=true},--Magic Rooster 
+[65917]={[1]=true},--Magic Rooster
 [55531]={[1]=true,[30]=true},--Mechano-hog
 [60424]={[1]=true,[30]=true},--Mekgineer's Chopper
 [191314]={[1]=true},--Minion of Grumpus
@@ -213,7 +221,6 @@ Gup_MountData = {
 [34795]={[1]=true},--Red Hawkstrider
 [10873]={[1]=true},--Red Mechanostrider
 [138641]={[1]=true},--Red Primal Raptor
-[26054]={[1]=true,[2]=true},--Red Qiraji Battle Tank
 [129935]={[1]=true},--Red Shado-Pan Riding Tiger
 [17462]={[1]=true},--Red Skeletal Horse
 [22722]={[1]=true},--Red Skeletal Warhorse
@@ -230,7 +237,6 @@ Gup_MountData = {
 [171829]={[1]=true},--Shadowmane Charger
 [138425]={[1]=true},--Slate Primordial Direhorn
 [171843]={[1]=true},--Smoky Direwolf
-[171828]={[1]=true},--Solar Spirehawk
 [130965]={[1]=true},--Son of Galleon
 [136471]={[1]=true},--Spawn of Horridon
 [92231]={[1]=true},--Spectral Steed
@@ -256,7 +262,7 @@ Gup_MountData = {
 [66091]={[1]=true},--Sunreaver Hawkstrider
 [68057]={[1]=true},--Swift Alliance Steed
 [23241]={[1]=true},--Swift Blue Raptor
-[43900]={[1]=true},--Swift Brewfest Ram	
+[43900]={[1]=true},--Swift Brewfest Ram
 [171830]={[1]=true},--Swift Breezestrider
 [23238]={[1]=true},--Swift Brown Ram
 [23229]={[1]=true},--Swift Brown Steed
@@ -267,7 +273,7 @@ Gup_MountData = {
 [171842]={[1]=true},--Swift Frostwolf
 [23239]={[1]=true},--Swift Gray Ram
 [65640]={[1]=true},--Swift Gray Steed
-[23252]={[1]=true},--Swift Gray Wolf	
+[23252]={[1]=true},--Swift Gray Wolf
 [35025]={[1]=true},--Swift Green Hawkstrider
 [23225]={[1]=true},--Swift Green Mechanostrider
 [68056]={[1]=true},--Swift Horde Wolf
@@ -281,7 +287,7 @@ Gup_MountData = {
 [33660]={[1]=true},--Swift Pink Hawkstrider
 [35027]={[1]=true},--Swift Purple Hawkstrider
 [65644]={[1]=true},--Swift Purple Raptor
-[24242]={[1]=true},--Swift Razzashi Raptor	
+[24242]={[1]=true},--Swift Razzashi Raptor
 [65639]={[1]=true},--Swift Red Hawkstrider
 [101573]={[1]=true},--Swift Shorestrider
 [42777]={[1]=true},--Swift Spectral Tiger
@@ -331,7 +337,7 @@ Gup_MountData = {
 [171845]={[1]=true},--Warlord's Deathwheel
 [189044]={[1]=true},--Warmongering Gladiator's Felblood Gronnling
 [171837]={[1]=true},--Warsong Direfang
-[64657]={[1]=true},--White Kodo 
+[64657]={[1]=true},--White Kodo
 [15779]={[1]=true},--White Mechanostrider Mod B
 [54753]={[1]=true},--White Polar Bear
 [6898]={[1]=true},--White Ram
@@ -349,7 +355,11 @@ Gup_MountData = {
 [59791]={[1]=true},--Wooly Mammoth
 [59793]={[1]=true},--Wooly Mammoth
 [74918]={[1]=true},--Wooly White Rhino
-[26055]={[1]=true,[2]=true},--Yellow Qiraji Battle Tank
+-- Qiraji
+-- [26055]={[1]=true,[2]=true},--Yellow Qiraji Battle Tank
+-- [26054]={[1]=true,[2]=true},--Red Qiraji Battle Tank
+-- [26056]={[1]=true,[2]=true},--Green Qiraji Battle Tank
+-- [25953]={[1]=true,[2]=true},--Blue Qiraji Battle Tank
 -- Not listed in Wowhead under mounts --
 [15781]={[1]=true},--Steel Mechanostrider
 [17455]={[1]=true},--Purple Mechanostrider
@@ -410,7 +420,7 @@ Gup_MountData = {
 [127156]={[10]=true},--Crimson Cloud Serpent
 [129552]={[10]=true},--Crimson Pandaren Phoenix
 [88990]={[10]=true},--Dark Phoenix <-- Flying Guild Mount
-[64927]={[1]=true,[10]=true},--Deadly Gladiator's Frost Wyrm
+[64927]={[10]=true},--Deadly Gladiator's Frost Wyrm
 [126507]={[10]=true},--Depleted-Kyparium Rocket
 [88335]={[10]=true},--Drake of the East Wind
 [88742]={[10]=true},--Drake of the North Wind
@@ -446,7 +456,7 @@ Gup_MountData = {
 [148619]={[10]=true},--Grievous Gladiator's Cloud Serpent
 [163025]={[1]=true,[10]=true},--Grinning Reaver
 [189999]={[1]=true,[10]=true},--Grove Warden
-[48025]={[1]=true,[10]=true},--Headless Horseman's Mount	
+[48025]={[1]=true,[10]=true},--Headless Horseman's Mount
 [110051]={[10]=true},--Heart of the Aspects
 [142073]={[1]=true,[10]=true},--Hearthsteed
 [127169]={[10]=true},--Heavenly Azure Cloud Serpent
@@ -499,7 +509,8 @@ Gup_MountData = {
 [66087]={[10]=true},--Silver Covenant Hippogryph
 [39802]={[10]=true},--Silver Riding Nether Ray
 [134359]={[1]=true,[10]=true},--Sky Golem
-[191633]={[1]=true,[10]=true},--Soaring Skyterror
+[191633]={[10]=true},--Soaring Skyterror
+[171828]={[10]=true},--Solar Spirehawk
 [148392]={[10]=true},--Spawn of Galakras
 [107516]={[10]=true},--Spectral Gryphon
 [107517]={[10]=true},--Spectral Wind Rider
@@ -555,14 +566,13 @@ Gup_MountData = {
 [28828]={[10]=true},--Nether Drake
 [61442]={[10]=true},--Swift Mooncloth Carpet
 [61444]={[10]=true},--Swift Shadoweave Carpet
-[55164]={[10]=true},--Swift Spectral Gryphon
 [61446]={[10]=true},--Swift Spellfire Carpet
 -- AQUATIC MOUNTS ---------------------------------------------------------
 [75207]={[20]=true,[21]=true},--Abyssal Seahorse
 [30174]={[20]=true},--Riding Turtle
 [64731]={[20]=true},--Sea Turtle
 [98718]={[20]=true},--Subdued Seahorse
----------------------------------------------------------------------------	
+---------------------------------------------------------------------------
 [148970]={[1]=true},--Felsteed
 [148972]={[1]=true},--Dreadsteed
 
@@ -572,19 +582,18 @@ Gup_MountData = {
 [213164]={[1]=true},--Brilliant Direbeak
 [214791]={[20]=true},--Brinedeep Bottom-Feeder
 [171840]={[1]=true},--Coldflame Infernal
-[227989]={[1]=true,[10]=true},--Cruel  Gladiator's Storm Dragon
-[227995]={[1]=true,[10]=true},--Demonic Gladiator's Storm Dragon
+[227989]={[10]=true},--Cruel  Gladiator's Storm Dragon
+[227995]={[10]=true},--Demonic Gladiator's Storm Dragon
 [223018]={[20]=true},--Fathom Dweller
-[227988]={[1]=true},--Fearless Gladiator's Storm Dragon
-[215545]={[1]=true},--Fel Bat (Test) -- exist???
+[227988]={[10]=true},--Fearless Gladiator's Storm Dragon
 [213134]={[1]=true},--Felblaze Infernal
 [200175]={[1]=true},--Felsaber
-[227991]={[1]=true,[10]=true},--Ferocious Gladiator's Storm Dragon
-[227994]={[1]=true,[10]=true},--Fierce Gladiator's Storm Dragon
+[227991]={[10]=true},--Ferocious Gladiator's Storm Dragon
+[227994]={[10]=true},--Fierce Gladiator's Storm Dragon
 [213349]={[1]=true},--Flarecore Infernal
 [213350]={[1]=true},--Frostshard Infernal
-[213339]={[1]=true,[10]=true},--Great Northern Elderhorn -- fly?
-[193007]={[1]=true,[10]=true},--Grove Defiler -- fly?
+[213339]={[1]=true},--Great Northern Elderhorn
+[193007]={[1]=true},--Grove Defiler
 [171827]={[1]=true},--Hellfire Infernal
 [225765]={[1]=true,[10]=true},--Leyfeather Hippogryph
 [171850]={[1]=true},--Llothien Prowler
@@ -598,6 +607,7 @@ Gup_MountData = {
 [222241]={[1]=true},--Prestigious Midnight Courser
 [222236]={[1]=true},--Prestigious Royal Courser
 [193695]={[1]=true},--Prestigious War Steed
+[204166]={[1]=true},--Prestigious War Wolf
 [215558]={[1]=true},--Ratstallion
 [213163]={[1]=true},--Snowfeather Hunter
 [196681]={[1]=true},--Spirit of Eche'ro
@@ -606,16 +616,18 @@ Gup_MountData = {
 [223578]={[1]=true},--Vicious War Elekk
 [223354]={[1]=true},--Vicious War Trike7
 [223363]={[1]=true},--Vicious Warstrider
-[227986]={[1]=true,[10]=true},--Vindictive Gladiator's Storm Dragon
+[227986]={[10]=true},--Vindictive Gladiator's Storm Dragon
 [213165]={[1]=true},--Viridian Sharptalon
 ---------------------------------------------------------------------------
--- 7.1.0
+-- 7.1.x
 [230987]={[1]=true,[10]=true},--Arcanist's Manasaber
 [228919]={[20]=true},--Darkwater Skate
 [229499]={[1]=true},--Midnight
 [230844]={[1]=true},--Rockspine Basilisk
 [231428]={[10]=true},--Smoldering Ember Wyrm
 [230401]={[1]=true},--White Hawkstrider
+[232405]={[1]=true},--Primal Flamesaber
+
 }	;
 
 --end
