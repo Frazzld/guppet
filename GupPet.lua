@@ -87,20 +87,14 @@ function GupPet_OnLoad(self)
 
 	self:RegisterEvent("ADDON_LOADED");
 	self:RegisterEvent("PLAYER_ENTERING_WORLD");
-	self:RegisterEvent("COMPANION_LEARNED");
-	self:RegisterEvent("COMPANION_UPDATE");
 	self:RegisterEvent("UPDATE_BINDINGS");
 	self:RegisterEvent("LEARNED_SPELL_IN_TAB");  	-- For update fly
-	self:RegisterEvent("GLYPH_REMOVED");
+	self:RegisterEvent("NEW_MOUNT_ADDED")
 
 	self:RegisterEvent("CHAT_MSG_ADDON");			-- Listen for a Update spam message
 
 	self:RegisterEvent("PLAYER_REGEN_DISABLED");
 
-	self:RegisterEvent("UPDATE_SUMMONPETS_ACTION")
-	self:RegisterEvent("PET_JOURNAL_PET_DELETED")
-	self.TotalElapsed = 0;
-	self:SetScript("OnUpdate", GupPet_UpdateCompanionDataListTime  ) ;
 end
 
 function GupPet_OnEvent(self, event, ...)
@@ -238,32 +232,9 @@ function GupPet_OnEvent(self, event, ...)
 			GupPet_UpdateBindings( "GUPPET_CALLCOMPANION" 	, GupPet_IngameFrameTemplateCompanion );
 		end
 
-	elseif event == "COMPANION_UPDATE" then
+	elseif event == "NEW_MOUNT_ADDED" then
 
-		local arg1 = ... ;
-
-		if arg1 == nil then
-
-			GupPet_UpdateDataList() ;
-			GupPet_Interface_UpdateLocationFrame() ;
-			self:UnregisterEvent("COMPANION_UPDATE");
-		end
-
-	elseif event == "COMPANION_LEARNED" then
-
-		GupPet_Debug( "New Pet/Mount" );
-		GupPet_UpdateDataList() ;
-		GupPet_Interface_UpdateLocationFrame() ;
-
-
-	elseif event == "UPDATE_SUMMONPETS_ACTION" then
-
-		GupPet_UpdateCompanionDataList()
-		GupPet_Interface_UpdateLocationFrame()
-
-	elseif event == "PET_JOURNAL_PET_DELETED" then
-
-		GupPet_UpdateCompanionDataList()
+		GupPet_UpdateDataList()
 		GupPet_Interface_UpdateLocationFrame()
 
 	elseif event == "LEARNED_SPELL_IN_TAB"  then

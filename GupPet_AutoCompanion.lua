@@ -157,7 +157,7 @@ function GupPet_AutoCompanionSetEnable()
 
 	if GUPPET_OPTIONS.AutoCompanion.Enabled then
 	
-		GUPPET_AUTOCOMPANION.Frame:RegisterEvent("COMPANION_UPDATE") ;		--For dismounting
+		GUPPET_AUTOCOMPANION.Frame:RegisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED") ;		--For dismounting
 		GUPPET_AUTOCOMPANION.Frame:RegisterEvent("PLAYER_UNGHOST") ; 		--Walking to corpse
 		GUPPET_AUTOCOMPANION.Frame:RegisterEvent("PLAYER_ALIVE") ;			--Res
 		GUPPET_AUTOCOMPANION.Frame:RegisterEvent("ZONE_CHANGED") ;			--Portal or summon not far away 
@@ -167,21 +167,18 @@ function GupPet_AutoCompanionSetEnable()
 		
 		GUPPET_AUTOCOMPANION.Frame:Show() ;
 	else
-		GUPPET_AUTOCOMPANION.Frame:UnregisterEvent("COMPANION_UPDATE") ;
 		GUPPET_AUTOCOMPANION.Frame:UnregisterEvent("PLAYER_UNGHOST") ;	
 		GUPPET_AUTOCOMPANION.Frame:UnregisterEvent("PLAYER_ALIVE") ;		
 		GUPPET_AUTOCOMPANION.Frame:UnregisterEvent("ZONE_CHANGED_NEW_AREA") ;
 		GUPPET_AUTOCOMPANION.Frame:UnregisterEvent("ZONE_CHANGED") ;
 		GUPPET_AUTOCOMPANION.Frame:UnregisterEvent("PLAYER_CONTROL_GAINED") ;
 		GUPPET_AUTOCOMPANION.Frame:UnregisterEvent("UNIT_EXITED_VEHICLE") ;
+		GUPPET_AUTOCOMPANION.Frame:UnregisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
 	end
 end
 
 function GupPet_AutoCompanionEvent(event, ... )
 
-	if ... and ... == "CRITTER" then
-		return ;
-	end
 	
 	if InCombatLockdown() then 
 				

@@ -7,7 +7,9 @@
 ## LoadOnDemand: 0
 ## SavedVariablesPerCharacter: GUPPET_SAVEDDATA, GUPPET_SAVEDLOCATIONS, GUPPET_OPTIONS 
 
-Libs\LibStub\LibStub.lua
+Libs\LibPetJournal-2.0\LibStub.lua
+Libs\LibPetJournal-2.0\CallbackHandler-1.0.lua
+Libs\LibPetJournal-2.0\LibPetJournal-2.0.lua
 
 localization.lua
 
