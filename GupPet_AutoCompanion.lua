@@ -1,12 +1,7 @@
 ﻿--[[ 	GupPet by Gup 	]]--
- 
+
 -- TEMP VARS
 GUPPET_AUTOCOMPANION = {} ;
- 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_AutoCompanionBoot		 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_AutoCompanionBoot()
 
 	GUPPET_AUTOCOMPANION.Frame = CreateFrame("Frame", "GUPPET_AUTOCOMPANIONFrameq"); 
@@ -29,10 +24,6 @@ function GupPet_AutoCompanionBoot()
 	GupPet_AutoCompanionResumonSetEnable();
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_AutoCompanionPetOfTheDay			 															]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_AutoCompanionPetOfTheDay()
 
 	if GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Enabled then
@@ -61,12 +52,6 @@ function GupPet_AutoCompanionPetOfTheDay()
 	end
 end
 
-
-
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_AutoCompanionResumonSetEnable	 															]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_AutoCompanionResumonSetEnable()
 
 	if GUPPET_OPTIONS.AutoCompanion and GUPPET_OPTIONS.AutoCompanion.Resummon > 0 then
@@ -77,10 +62,6 @@ function GupPet_AutoCompanionResumonSetEnable()
 	end
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_AutoCompanionResumonUpdate		 															]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_AutoCompanionResummonUpdate(self, elap)
 
 	GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed = GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed + elap ;
@@ -99,10 +80,6 @@ function GupPet_AutoCompanionResummonUpdate(self, elap)
 	end
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_AutoCompanionUpdate		 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_AutoCompanionUpdate(self, elap)
 	
 	if IsMounted() or IsFlying() then
@@ -176,10 +153,6 @@ function GupPet_AutoCompanionUpdate(self, elap)
 	end
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_AutoCompanionSetEnable	 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_AutoCompanionSetEnable()
 
 	if GUPPET_OPTIONS.AutoCompanion.Enabled then
@@ -204,10 +177,6 @@ function GupPet_AutoCompanionSetEnable()
 	end
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_AutoCompanionEvent		 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_AutoCompanionEvent(event, ... )
 
 	if ... and ... == "CRITTER" then
@@ -229,10 +198,6 @@ function GupPet_AutoCompanionEvent(event, ... )
 	GUPPET_AUTOCOMPANION.Frame:Show() ;
 end
  
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_AutoCompanion_OnQuest	 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_AutoCompanion_OnQuest()
 	local CurrentMap = ""
  

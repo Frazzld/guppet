@@ -8,10 +8,6 @@ GUPPET_INTERFACE_SAVEHIGHLIGHT 	= {} ;
 GUPPET_INTERFACE_INGAMEBUTTONS 	= { Init = 0};
 GUPPET_INTERFACE_SAVESHOW = {}
 
-----------------------------------------------------------------------------------------------------------------
---[[	Popups							 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 StaticPopupDialogs["GupPet_Interface_Remove"] = {
   text = GUPPET_L["INTERFACE_REMOVE"][1] ,
   button1 = GUPPET_L["INTERFACE_REMOVE"][2],
@@ -47,10 +43,6 @@ StaticPopupDialogs["GupPet_Interface_ChangeMode"] = {
 };
 
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_Show			 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_Show( Type , Option , frame )
 
 	if Option == "Add" then
@@ -71,10 +63,6 @@ function GupPet_Interface_Show( Type , Option , frame )
 	end
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_SetSelected	 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_SetSelected( Button , Type )
 		
 	if not( GUPPET_INTERFACE_SAVEHIGHLIGHT[Type] == nil) then
@@ -85,20 +73,12 @@ function GupPet_Interface_SetSelected( Button , Type )
 	GUPPET_INTERFACE_SAVEHIGHLIGHT[Type] = Button:GetName();
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_GetSelected	 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_GetSelected( Type )
 
 	return GUPPET_INTERFACE_SAVEHIGHLIGHT[Type] ;
 
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_MakeButtons	 																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_MakeButtons()
  
 	local Optionframe = CreateFrame( "Frame", "GupPetPanel" , nil ); 
@@ -113,11 +93,7 @@ function GupPet_Interface_MakeButtons()
 	 
 	InterfaceOptions_AddCategory(Optionframe);
 end
- 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_Option			 																	]]--
-----------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------- 
+
 function GupPet_Interface_Option()
 	
 	if GUPPET_INTERFACE_OPTIONFRAME.Init == 0 then
@@ -557,10 +533,6 @@ function GupPet_Interface_Option()
 	end
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_UpdateLocationFrame																]]--
-----------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------- 
 function GupPet_Interface_UpdateLocationFrame()
 
 	local i = 0 ;
@@ -627,18 +599,10 @@ function GupPet_Interface_UpdateLocationFrame()
 	
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_GetLocationSelected																]]--
-----------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------- 
 function GupPet_Interface_GetLocationSelected()
 	return _G[GUPPET_INTERFACE_LOCATIONFRAME.Selected].Location ;
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_RemoveLocationSelected																]]--
-----------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------- 
 function GupPet_Interface_RemoveLocationSelected()
 
 	if not( GUPPET_INTERFACE_LOCATIONFRAME.Selected == nil) then
@@ -646,19 +610,11 @@ function GupPet_Interface_RemoveLocationSelected()
 	end
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_SetLocationSelected																]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_SetLocationSelected( button )
 	button:LockHighlight()
 	GUPPET_INTERFACE_LOCATIONFRAME.Selected = button:GetName();
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_UpdateMountFrame																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_UpdateMountFrame( Location )
 
 	
@@ -816,10 +772,6 @@ return Data
 
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_UpdateLocalDuelFrame																]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_UpdateLocalDuelFrame( Data ,  MountType )
 
   local t_i = 0 ;
@@ -955,10 +907,6 @@ function GupPet_Interface_UpdateLocalDuelFrame( Data ,  MountType )
 
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_SortLocations																		]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_SortLocations (t)
 	 
 	local a = {}
@@ -992,10 +940,6 @@ function GupPet_Interface_SortLocations (t)
 	return iter
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_ScrollFrame_Update																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_ScrollFrame_Update(frame, numItems, numToDisplay, valueStep , FrameWidth  )
 
 	local frameName = frame:GetName();
@@ -1044,10 +988,6 @@ function GupPet_Interface_ScrollFrame_Update(frame, numItems, numToDisplay, valu
 
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_IconPopupFrame_Update																		]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_IconPopupFrame_Update(self)
 	self = self or GupPet_IconPopupFrame;
 
@@ -1089,10 +1029,6 @@ function GupPet_IconPopupFrame_Update(self)
 	FauxScrollFrame_Update(GupPet_IconPopupScrollFrame, ceil(numIcons / 5) , 4, 36 );
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_IconPopupButton_SelectTexture																]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_IconPopupButton_SelectTexture(selectedIconTexture)
 	GupPet_IconPopupFrame.selectedIconTexture = selectedIconTexture;
 	
@@ -1109,19 +1045,11 @@ function GupPet_IconPopupButton_SelectTexture(selectedIconTexture)
 	GupPet_Interface_IngameButtons_UpdateIcons()
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_IconPopupButton_OnClick																		]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_IconPopupButton_OnClick(self, button)
 	GupPet_IconPopupButton_SelectTexture(self.MyTexture);
 	GupPet_IconPopupFrame_Update();
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_IconPopupFrame_TabClick																		]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_IconPopupFrame_TabClick()
 
 	if GupPet_Interface_GetSelected( "IconTabs" ) == "GupPet_IconPopupFrameTab1" then
@@ -1137,18 +1065,10 @@ function GupPet_IconPopupFrame_TabClick()
 	GupPet_IconPopupFrame_Update();
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_IconPopupFrame_CloseEdit																		]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_IconPopupFrame_CloseEdit()
 	GupPet_IconPopupFrame:Hide();
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_IconPopupFrame_RestoreEdit																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_IconPopupFrame_RestoreEdit()
 
 	GUPPET_OPTIONS.IngameButton.Icons = { 	Ground = "Interface\\Icons\\Ability_Mount_Mammoth_Black" , 
@@ -1159,20 +1079,12 @@ function GupPet_IconPopupFrame_RestoreEdit()
 	GupPet_IconPopupFrame_Update();
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_IconPopupFrame_OnShow																		]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_IconPopupFrame_OnShow(self)
 	PlaySound(839);--SOUNDKIT.IG_CHARACTER_INFO_OPEN
 	GupPet_IconPopupFrame_TabClick();
 	GupPet_IconPopupFrame_Update(self);
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_MinimapButton_Init																	]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_MinimapButton_Init()
 	
 	if GUPPET_OPTIONS.MinimapButton.Show then
@@ -1184,10 +1096,6 @@ function GupPet_Interface_MinimapButton_Init()
 	GupPet_Interface_MinimapButton_UpdatePosition() ;
 end
 
-----------------------------------------------------------------------------------------------------------------
---[[	GupPet_Interface_MinimapButton_UpdatePosition														]]--
-----------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------
 function GupPet_Interface_MinimapButton_UpdatePosition()
 
 	_G["GupPet_MinimapButton"]:SetPoint("TOPLEFT","Minimap","TOPLEFT",54 - (GUPPET_OPTIONS.MinimapButton.Radius * cos(GUPPET_OPTIONS.MinimapButton.Position)),(GUPPET_OPTIONS.MinimapButton.Radius * sin(GUPPET_OPTIONS.MinimapButton.Position)) - 55	)
