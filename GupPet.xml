@@ -1,23 +1,23 @@
-﻿<Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/"> 
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
 
-		
+
 	<Font name="GupPet_FontText" inherits="SystemFont_Tiny" virtual="true">
 		<FontHeight>	<AbsValue val="10"/>	</FontHeight>
 	</Font>
 
 	<Font name="GupPet_FontSubTitle" inherits="NumberFont_Outline_Med" virtual="true">
-		<FontHeight>	
-			<AbsValue val="12"/>	
+		<FontHeight>
+			<AbsValue val="12"/>
 		</FontHeight>
 	</Font>
 
 	<Frame name="GupPetFrame" hidden="true">
 		<Scripts>
             <OnLoad>
-				GupPet_OnLoad(self);
+				GupPet_OnLoad(self)
 			</OnLoad>
 			<OnEvent>
-				GupPet_OnEvent(self, event, ... );
+				GupPet_OnEvent(self, event, ... )
 			</OnEvent>
  		</Scripts>
 	</Frame>
@@ -34,20 +34,20 @@
 		<Scripts>
 			<OnEnter>
 				if ( self.tooltipText ) then
-					GameTooltip:SetOwner(self, self.tooltipOwnerPoint or "ANCHOR_RIGHT");
-					GameTooltip:SetText(self.tooltipText, nil, nil, nil, nil, 1);
+					GameTooltip:SetOwner(self, self.tooltipOwnerPoint or "ANCHOR_RIGHT")
+					GameTooltip:SetText(self.tooltipText, nil, nil, nil, nil, true)
 				end
 				if ( self.tooltipRequirement ) then
-					GameTooltip:AddLine(self.tooltipRequirement, 1.0, 1.0, 1.0, 1.0);
-					GameTooltip:Show();
+					GameTooltip:AddLine(self.tooltipRequirement, 1.0, 1.0, 1.0, true)
+					GameTooltip:Show()
 				end
 			</OnEnter>
 			<OnLeave>
-				GameTooltip:Hide();
+				GameTooltip:Hide()
 			</OnLeave>
 		</Scripts>
 	</Button>
-	
+
 	<Button name="GupPet_SmallButtonTemplate" FrameLevel="20" virtual="true" >
 		<Size>
 			<AbsDimension x="32" y="32"/>
@@ -55,16 +55,16 @@
 		<Scripts>
 			<OnEnter>
 				if ( self.tooltipText ) then
-					GameTooltip:SetOwner(self, self.tooltipOwnerPoint or "ANCHOR_RIGHT");
-					GameTooltip:SetText(self.tooltipText, nil, nil, nil, nil, 1);
+					GameTooltip:SetOwner(self, self.tooltipOwnerPoint or "ANCHOR_RIGHT")
+					GameTooltip:SetText(self.tooltipText, nil, nil, nil, nil, true)
 				end
 				if ( self.tooltipRequirement ) then
-					GameTooltip:AddLine(self.tooltipRequirement, 1.0, 1.0, 1.0, 1.0);
-					GameTooltip:Show();
+					GameTooltip:AddLine(self.tooltipRequirement, 1.0, 1.0, 1.0, true)
+					GameTooltip:Show()
 				end
 			</OnEnter>
 			<OnLeave>
-				GameTooltip:Hide();
+				GameTooltip:Hide()
 			</OnLeave>
 		</Scripts>
 		<NormalTexture file="Interface\Buttons\UI-SpellbookIcon-NextPage-Up"/>
@@ -72,12 +72,12 @@
 		<DisabledTexture file="Interface\Buttons\UI-SpellbookIcon-NextPage-Disabled"/>
 		<HighlightTexture file="Interface\Buttons\UI-Common-MouseHilight" alphaMode="ADD"/>
 	</Button>
-	
 
-	
-	
-	
-	
+
+
+
+
+
 	<Slider name="GupPet_SliderTemplate" orientation="HORIZONTAL" virtual="true" enableMouse="true">
 		<Size>
 			<AbsDimension x="50" y="15"/>
@@ -85,7 +85,7 @@
 		<HitRectInsets>
 			<AbsInset left="0" right="-140" top="0" bottom="0"/>
 		</HitRectInsets>
- 
+
 		<Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
 			<EdgeSize>
 				<AbsValue val="8"/>
@@ -103,13 +103,13 @@
 					<Anchors>
 						<Anchor point="LEFT" relativePoint="RIGHT">
 							<Offset x="5" y="0"/>
-						</Anchor>	
+						</Anchor>
 					</Anchors>
 				</FontString>
 			</Layer>
 		</Layers>
 		<Scripts>
-		
+
 		</Scripts>
 		<ThumbTexture name="$parentThumb" file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
 			<Size>
@@ -117,7 +117,7 @@
 			</Size>
 		</ThumbTexture>
 	</Slider>
-	
+
 	<Slider name="GupPet_OptionsSliderTemplate" orientation="HORIZONTAL" virtual="true" enableMouse="true">
 		<Size>
 			<AbsDimension x="144" y="17"/>
@@ -176,17 +176,17 @@
 			<OnEnter>
 				if ( self:IsEnabled() ) then
 					if ( self.tooltipText ) then
-						GameTooltip:SetOwner(self, self.tooltipOwnerPoint or "ANCHOR_RIGHT");
-						GameTooltip:SetText(self.tooltipText, nil, nil, nil, nil, 1);
+						GameTooltip:SetOwner(self, self.tooltipOwnerPoint or "ANCHOR_RIGHT")
+						GameTooltip:SetText(self.tooltipText, nil, nil, nil, nil, true)
 					end
 					if ( self.tooltipRequirement ) then
-						GameTooltip:AddLine(self.tooltipRequirement, 1.0, 1.0, 1.0, 1.0);
-						GameTooltip:Show();
+						GameTooltip:AddLine(self.tooltipRequirement, 1.0, 1.0, 1.0, true)
+						GameTooltip:Show()
 					end
 				end
 			</OnEnter>
 			<OnLeave>
-				GameTooltip:Hide();
+				GameTooltip:Hide()
 			</OnLeave>
 		</Scripts>
 		<ThumbTexture name="$parentThumb" file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
@@ -195,8 +195,8 @@
 			</Size>
 		</ThumbTexture>
 	</Slider>
-	
-	
+
+
 	<CheckButton name="GupPet_CheckButtonTemplate" virtual="true">
 		<Size>
 			<AbsDimension x="20" y="20"/>
@@ -204,12 +204,12 @@
 		<HitRectInsets>
 			<AbsInset left="0" right="-140" top="0" bottom="0"/>
 		</HitRectInsets>
- 
+
 		<NormalTexture file="Interface\Buttons\UI-CheckBox-Up"/>
 		<PushedTexture file="Interface\Buttons\UI-CheckBox-Down"/>
 	 	<HighlightTexture file="Interface\Buttons\UI-CheckBox-Highlight" alphaMode="ADD"/>
 		<CheckedTexture file="Interface\Buttons\UI-CheckBox-Check"/>
-		<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled"/>	
+		<DisabledCheckedTexture file="Interface\Buttons\UI-CheckBox-Check-Disabled"/>
 		<Layers>
 			<Layer level="OVERLAY">
 				<FontString name="$parentText" inherits="GupPet_FontText" text="No Title">
@@ -224,21 +224,21 @@
 		<Scripts>
 			<OnEnter>
 				if ( self.tooltipText ) then
-					GameTooltip:SetOwner(self, self.tooltipOwnerPoint or "ANCHOR_RIGHT");
-					GameTooltip:SetText(self.tooltipText, nil, nil, nil, nil, 1);
+					GameTooltip:SetOwner(self, self.tooltipOwnerPoint or "ANCHOR_RIGHT")
+					GameTooltip:SetText(self.tooltipText, nil, nil, nil, nil, true)
 				end
 				if ( self.tooltipRequirement ) then
-					GameTooltip:AddLine(self.tooltipRequirement, 1.0, 1.0, 1.0, 1.0);
-					GameTooltip:Show();
+					GameTooltip:AddLine(self.tooltipRequirement, 1.0, 1.0, 1.0, true)
+					GameTooltip:Show()
 				end
 			</OnEnter>
 			<OnLeave>
-				GameTooltip:Hide();
+				GameTooltip:Hide()
 			</OnLeave>
 		</Scripts>
 	</CheckButton>
-	
-	
+
+
 	<Frame name="GupPet_FieldTemplate" inherits="GupPet_OptionsFrameTemplate"    virtual="true" >
  		<Layers>
 			<Layer level="OVERLAY">
@@ -277,7 +277,7 @@
 			</Layer>
 		</Layers>
 		<Frames>
-		
+
 			<Button name="$parentEnable" inherits="GupPet_ButtonTemplate" text="GUPPET_L.ENABLE.1">
 				<Size>
 					<AbsDimension x="60" y="10"/>
@@ -289,8 +289,8 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self:SetText(GUPPET_L["ENABLE"][1]) ;
-						self.tooltipText = GUPPET_L["ENABLE"][2] ;
+						self:SetText(GUPPET_L["ENABLE"][1])
+						self.tooltipText = GUPPET_L["ENABLE"][2]
 					</OnLoad>
 				</Scripts>
  			</Button>
@@ -305,12 +305,12 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self:SetText(GUPPET_L["DISABLE"][1]) ;
-						self.tooltipText = GUPPET_L["DISABLE"][2] ;
+						self:SetText(GUPPET_L["DISABLE"][1])
+						self.tooltipText = GUPPET_L["DISABLE"][2]
 					</OnLoad>
-				</Scripts>				
+				</Scripts>
  			</Button>
-		
+
 			<ScrollFrame name="$parentContainer" inherits="FauxScrollFrameTemplateLight">
 				<Anchors>
 						<Anchor point="TOPLEFT">
@@ -326,33 +326,33 @@
 	 	</Frames>
 		<Scripts>
 			<OnLoad>
-				
-				self:SetBackdropColor(0.5, 0.5, 0.5, 0.7);
-				
-				local temp_Name = self:GetName() ;
-				_G[ temp_Name .. "Container"]:SetScrollChild( _G[ temp_Name .. "Data"] )				
-				
+
+				self:SetBackdropColor(0.5, 0.5, 0.5, 0.7)
+
+				local temp_Name = self:GetName()
+				_G[ temp_Name .. "Container"]:SetScrollChild( _G[ temp_Name .. "Data"] )
+
 			</OnLoad>
 		</Scripts>
 	</Frame>
-		
+
 	<Frame name="GupPet_OptionsFrameTemplate" virtual="true">
 		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border"  >
 			<BackgroundInsets>
 				<AbsInset left="3" right="3" top="3" bottom="3"/>
 			</BackgroundInsets>
- 
+
 			<EdgeSize>
 				<AbsValue val="15"/>
 			</EdgeSize>
 		</Backdrop>
 		<Scripts>
 			<OnLoad>
-				self:SetBackdropColor(1, 1, 1, 0.7);
+				self:SetBackdropColor(1, 1, 1, 0.7)
 			</OnLoad>
 		</Scripts>
 	</Frame>
-		
+
 	<Button name="GupPet_OptionsListButtonTemplate" virtual="true">
 		<Size>
 			<AbsDimension x="175" y="18"/>
@@ -370,12 +370,12 @@
 		<HighlightFont style="GameFontHighlight"/>
 		<HighlightTexture file="Interface\PaperDollInfoFrame\UI-Character-Tab-Highlight" alphaMode="ADD">
 			<Anchors>
-				<Anchor point="TOPLEFT">	
+				<Anchor point="TOPLEFT">
 					<Offset>
 						<AbsDimension x="2" y="5"/>
 					</Offset>
 				</Anchor>
-				<Anchor point="BOTTOMRIGHT">	
+				<Anchor point="BOTTOMRIGHT">
 					<Offset>
 						<AbsDimension x="-2" y="-5"/>
 					</Offset>
@@ -385,15 +385,15 @@
 		<Scripts>
 			<OnClick>
 				PlaySound(856); --SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON
-			
-				GupPet_Interface_RemoveLocationSelected();
-				GupPet_Interface_SetLocationSelected( self ) ;
-				GupPet_Interface_UpdateMountFrame( self.Location );
+
+				GupPet_Interface_RemoveLocationSelected()
+				GupPet_Interface_SetLocationSelected( self )
+				GupPet_Interface_UpdateMountFrame( self.Location )
 			</OnClick>
 
 		</Scripts>
 	</Button>
-	
+
 	<Frame name="GupPet_InterfaceOptionsFrame" movable="true" toplevel="true" frameStrata="HIGH" parent="UIParent" hidden="true" enableMouse="true"  >
 		<Size>
 			<AbsDimension x="700" y="520"/>
@@ -412,7 +412,7 @@
 				<AbsValue val="32"/>
 			</EdgeSize>
 		</Backdrop>
-	
+
 		<Layers>
 			<Layer level="ARTWORK">
 				<Texture name="$parentHeader" file="Interface\DialogFrame\UI-DialogBox-Header">
@@ -436,7 +436,7 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-				
+
 				<Texture name="$parentVersionHeader" file="Interface\DialogFrame\UI-DialogBox-Header">
 					<Size>
 						<AbsDimension x="200" y="68"/>
@@ -458,32 +458,32 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-				
-				
+
+
 			</Layer>
 		</Layers>
-		
+
 		<Scripts>
 			<OnLoad>
-				self:SetBackdropColor(1, 1, 1, 0.6);
-				GupPet_InterfaceOptionsFrameVersionHeaderText:SetText("v ".. GetAddOnMetadata("GupPet", "Version"));
-				
-				self:RegisterForDrag("LeftButton");
+				self:SetBackdropColor(1, 1, 1, 0.6)
+				GupPet_InterfaceOptionsFrameVersionHeaderText:SetText("v ".. GetAddOnMetadata("GupPet", "Version"))
+
+				self:RegisterForDrag("LeftButton")
 			</OnLoad>
 			<OnDragStart>
-				self:StartMoving();
+				self:StartMoving()
 			</OnDragStart>
 			<OnDragStop>
-				self:StopMovingOrSizing();
+				self:StopMovingOrSizing()
 			</OnDragStop>
 		</Scripts>
-		
-		
+
+
 		<Frames>
-			
-			
-			<!--  
-				For all tha basis Options 
+
+
+			<!--
+				For all tha basis Options
 			-->
 			<Frame name="$parentOptions" inherits="GupPet_OptionsFrameTemplate">
 				<Size>
@@ -498,8 +498,8 @@
 				</Anchors>
 			</Frame>
 
-			<!--  
-				For all tha basis HELP 
+			<!--
+				For all tha basis HELP
 			-->
 			<Frame name="$parentHelp" inherits="GupPet_OptionsFrameTemplate" hidden="true">
 				<Size>
@@ -513,9 +513,9 @@
 					</Anchor>
 				</Anchors>
 			</Frame>
-			
-			<!--    
-				For all the Mounts 
+
+			<!--
+				For all the Mounts
 			-->
 			<Frame name="$parentMountsCompanions" inherits="GupPet_OptionsFrameTemplate" hidden="true">
 				<Size>
@@ -529,8 +529,8 @@
 					</Anchor>
 				</Anchors>
 				<Frames>
-				 
-					 
+
+
 					<Frame name="$parentLocations" inherits="GupPet_OptionsFrameTemplate">
 						<Size>
 							<AbsDimension x="190" y="410"/>
@@ -553,36 +553,36 @@
 								</Anchors>
 								<Scripts>
 									<OnLoad>
-										self:SetText(GUPPET_L["ADD"][1]) ;
-										self.tooltipText = GUPPET_L["ADD"][2] ;
+										self:SetText(GUPPET_L["ADD"][1])
+										self.tooltipText = GUPPET_L["ADD"][2]
 									</OnLoad>
 									<OnClick>
 										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-										
+
 										-- Get some zone info first --
-										local _, instanceType = IsInInstance() ;
-										local ZoneType = 0 ;
-								
+										local _, instanceType = IsInInstance()
+										local ZoneType = 0
+
 										if IsResting() then
 											ZoneType = 11
-										
+
 										elseif (   instanceType == "pvp" ) then
 											ZoneType = 41
-										
+
 										elseif (  instanceType == "arena" ) then
 											ZoneType = 31
-											
+
 										elseif  instanceType == "party" or instanceType == "raid"  then
 											ZoneType = 21
-										
+
 										else
 											ZoneType = 1
-												
+
 										end
-										 										
-										
-										GupPet_Location( "Add" , GetRealZoneText(), ZoneType ) ;
-										GupPet_Interface_UpdateLocationFrame() ;
+
+
+										GupPet_Location( "Add" , GetRealZoneText(), ZoneType )
+										GupPet_Interface_UpdateLocationFrame()
 									</OnClick>
 								</Scripts>
 							</Button>
@@ -596,19 +596,18 @@
 								</Anchors>
 								<Scripts>
 									<OnLoad>
-										self:SetText(GUPPET_L["REMOVE"][1]) ;
-										self.tooltipText = GUPPET_L["REMOVE"][2] ;
+										self:SetText(GUPPET_L["REMOVE"][1])
+										self.tooltipText = GUPPET_L["REMOVE"][2]
 									</OnLoad>
 									<OnClick>
-									
+
 										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-										-- GupPet_Location( "Remove" , GupPet_Interface_GetLocationSelected() ) ;
-										StaticPopup_Show ("GupPet_Interface_Remove", GupPet_Interface_GetLocationSelected() ) ;
-										
+										StaticPopup_Show ("GupPet_Interface_Remove", GupPet_Interface_GetLocationSelected() )
+
 									</OnClick>
 								</Scripts>
 							</Button>
-														
+
 							<ScrollFrame name="$parentContainer" inherits="FauxScrollFrameTemplateLight">
 								<Size>
 									<AbsDimension x="158" y="400"/>
@@ -624,14 +623,14 @@
 									<AbsDimension x="180" y="900"/>
 								</Size>
 							</Frame>
-														
+
 						</Frames>
 						<Scripts>
 							<OnLoad>
-															
-								local temp_Name = self:GetName() ;
-								_G[ temp_Name .. "Container"]:SetScrollChild( _G[ temp_Name .. "Data"] )				
-								
+
+								local temp_Name = self:GetName()
+								_G[ temp_Name .. "Container"]:SetScrollChild( _G[ temp_Name .. "Data"] )
+
 							</OnLoad>
 						</Scripts>
 					</Frame>
@@ -648,8 +647,8 @@
 							</Anchor>
 						</Anchors>
 						<Frames>
-						
-							<!--  
+
+							<!--
 								For all the Aquatic
 							-->
 							<Frame name="$parentAquatic" hidden="true">
@@ -664,9 +663,9 @@
 									</Anchor>
 								</Anchors>
 							</Frame>
-						
-						
-							<!--  
+
+
+							<!--
 								For all the Ground
 							-->
 							<Frame name="$parentGround" hidden="false">
@@ -681,8 +680,8 @@
 									</Anchor>
 								</Anchors>
 							</Frame>
-						
-							<!--  
+
+							<!--
 								For all the Fly
 							-->
 							<Frame name="$parentFly" hidden="true">
@@ -697,8 +696,8 @@
 									</Anchor>
 								</Anchors>
 							</Frame>
-							
-							<!--  
+
+							<!--
 								For all the Critters
 							-->
 							<Frame name="$parentCompanion" hidden="true">
@@ -713,13 +712,13 @@
 									</Anchor>
 								</Anchors>
 							</Frame>
-						
-						
-						
-							<!--  
+
+
+
+							<!--
 								All The Tabs
 							-->
-						
+
 							<Button name="$parentTabAquatic" inherits="OptionsFrameTabButtonTemplate" text="Aquatic" id="0">
 								<Anchors>
 									<Anchor point="BOTTOMLEFT"   relativePoint="TOPLEFT">
@@ -730,21 +729,21 @@
 								</Anchors>
 								<Scripts>
 									<OnLoad>
-										self:SetText(GUPPET_L["ALLAQUATICMOUNT"][1]) ;
-										self.tooltipText = GUPPET_L["ALLAQUATICMOUNT"][2] ;
+										self:SetText(GUPPET_L["ALLAQUATICMOUNT"][1])
+										self.tooltipText = GUPPET_L["ALLAQUATICMOUNT"][2]
 									</OnLoad>
 									<OnClick>
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainAquatic:Show();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainGround:Hide();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Hide();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Hide();
-										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainAquatic:Show()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainGround:Hide()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Hide()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Hide()
+										GupPet_Interface_SetSelected( self , "TypeTabs" )
 										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 									</OnClick>
 								</Scripts>
 							</Button>
-						
-						
+
+
 							<Button name="$parentTabGround" inherits="OptionsFrameTabButtonTemplate" text="Ground" id="1">
 								<Anchors>
 									<Anchor point="LEFT" relativeTo="$parentTabAquatic" relativePoint="RIGHT">
@@ -755,23 +754,23 @@
 								</Anchors>
 								<Scripts>
 									<OnClick>
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainAquatic:Hide();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainGround:Show();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Hide();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Hide();
-										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainAquatic:Hide()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainGround:Show()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Hide()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Hide()
+										GupPet_Interface_SetSelected( self , "TypeTabs" )
 										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 									</OnClick>
 									<OnLoad>
-										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
-										
-										self:SetText(GUPPET_L["ALLGROUNDMOUNT"][1]) ;
-										self.tooltipText = GUPPET_L["ALLGROUNDMOUNT"][2] ;
+										GupPet_Interface_SetSelected( self , "TypeTabs" )
+
+										self:SetText(GUPPET_L["ALLGROUNDMOUNT"][1])
+										self.tooltipText = GUPPET_L["ALLGROUNDMOUNT"][2]
 									</OnLoad>
 								</Scripts>
 							</Button>
-							
-													
+
+
 							<Button name="$parentTabFly" inherits="OptionsFrameTabButtonTemplate" text="Fly" id="4">
 								<Anchors>
 									<Anchor point="LEFT" relativeTo="$parentTabGround" relativePoint="RIGHT">
@@ -782,20 +781,20 @@
 								</Anchors>
 								<Scripts>
 									<OnClick>
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainAquatic:Hide();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainGround:Hide();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Show();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Hide();
-										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainAquatic:Hide()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainGround:Hide()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Show()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Hide()
+										GupPet_Interface_SetSelected( self , "TypeTabs" )
 										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 									</OnClick>
 									<OnLoad>
-										self:SetText(GUPPET_L["ALLFLYMOUNT"][1]) ;
-										self.tooltipText = GUPPET_L["ALLFLYMOUNT"][2] ;
+										self:SetText(GUPPET_L["ALLFLYMOUNT"][1])
+										self.tooltipText = GUPPET_L["ALLFLYMOUNT"][2]
 									</OnLoad>
 								</Scripts>
 							</Button>
-						
+
 							<Button name="$parentTabCompanion" inherits="OptionsFrameTabButtonTemplate" text="Companion" id="5">
 								<Anchors>
 									<Anchor point="LEFT" relativeTo="$parentTabFly" relativePoint="RIGHT">
@@ -806,32 +805,32 @@
 								</Anchors>
 								<Scripts>
 									<OnClick>
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainAquatic:Hide();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainGround:Hide();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Hide();
-										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Show();
-										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainAquatic:Hide()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainGround:Hide()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Hide()
+										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Show()
+										GupPet_Interface_SetSelected( self , "TypeTabs" )
 										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 									</OnClick>
 									<OnLoad>
-										self:SetText(GUPPET_L["ALLCOMPANION"][1]) ;
-										self.tooltipText = GUPPET_L["ALLCOMPANION"][2] ;
+										self:SetText(GUPPET_L["ALLCOMPANION"][1])
+										self.tooltipText = GUPPET_L["ALLCOMPANION"][2]
 									</OnLoad>
 								</Scripts>
 							</Button>
-						
+
 						</Frames>
 					</Frame>
 
 
-					
+
 				</Frames>
 			</Frame>
-			
-						
-			
-			<!-- 
-				Make some Tabs 
+
+
+
+			<!--
+				Make some Tabs
 			 -->
 			<Button name="$parentTab1"  inherits="OptionsFrameTabButtonTemplate" text="Options" id="1">
 				<Anchors>
@@ -844,20 +843,20 @@
 				<Scripts>
 					<OnClick>
 						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-						GupPet_Interface_SetSelected( self , "MainTabs" ) ;
-						
-						GupPet_Interface_Show( "MainTabs" ,"Show", GupPet_InterfaceOptionsFrameOptions ) ;
+						GupPet_Interface_SetSelected( self , "MainTabs" )
+
+						GupPet_Interface_Show( "MainTabs" ,"Show", GupPet_InterfaceOptionsFrameOptions )
 					</OnClick>
 					<OnLoad>
-						GupPet_Interface_SetSelected( self , "MainTabs" ) ;
-						GupPet_Interface_Show( "MainTabs" ,"Add", GupPet_InterfaceOptionsFrameOptions ) ;
-						
-						self:SetText(GUPPET_L["OPTIONS"] ) ;
-						--	self.tooltipText = GUPPET_L["OPTIONS"][2] ;
+						GupPet_Interface_SetSelected( self , "MainTabs" )
+						GupPet_Interface_Show( "MainTabs" ,"Add", GupPet_InterfaceOptionsFrameOptions )
+
+						self:SetText(GUPPET_L["OPTIONS"] )
+						--	self.tooltipText = GUPPET_L["OPTIONS"][2]
 					</OnLoad>
 				</Scripts>
 			</Button>
-			
+
 			<Button name="$parentTab2" inherits="OptionsFrameTabButtonTemplate" text="Mounts + Companions" id="2">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parentTab1" relativePoint="RIGHT">
@@ -869,19 +868,19 @@
 				<Scripts>
 					<OnClick>
 						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-						GupPet_Interface_SetSelected( self , "MainTabs" ) ;
-						GupPet_Interface_Show( "MainTabs" ,"Show", GupPet_InterfaceOptionsFrameMountsCompanions ) ;
+						GupPet_Interface_SetSelected( self , "MainTabs" )
+						GupPet_Interface_Show( "MainTabs" ,"Show", GupPet_InterfaceOptionsFrameMountsCompanions )
 					</OnClick>
 					<OnLoad>
-						self:SetText(GUPPET_L["MOUNTSCOMPANIONS"] ) ;
-						--	self.tooltipText = GUPPET_L["ALLCOMPANION"][2] ;
-						
-						GupPet_Interface_Show( "MainTabs" ,"Add", GupPet_InterfaceOptionsFrameMountsCompanions ) ;
+						self:SetText(GUPPET_L["MOUNTSCOMPANIONS"] )
+						--	self.tooltipText = GUPPET_L["ALLCOMPANION"][2]
+
+						GupPet_Interface_Show( "MainTabs" ,"Add", GupPet_InterfaceOptionsFrameMountsCompanions )
 					</OnLoad>
 				</Scripts>
-			</Button>			
+			</Button>
 
-			
+
 
 			<Button name="$parentTab4" inherits="OptionsFrameTabButtonTemplate" text="Close" id="4">
 				<Anchors>
@@ -894,19 +893,18 @@
 				<Scripts>
 					<OnClick>
 						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-						
-						 GupPet_InterfaceOptionsFrame:Hide();
+
+						 GupPet_InterfaceOptionsFrame:Hide()
 					</OnClick>
 					<OnLoad>
-						self:SetText(GUPPET_L["CLOSE"] ) ;
-						--	self.tooltipText = GUPPET_L["CLOSE"][2] ;
+						self:SetText(GUPPET_L["CLOSE"] )
 					</OnLoad>
 				</Scripts>
 			</Button>
-			
-			
-			
-			
+
+
+
+
 			<Button name="$parentTab3" inherits="OptionsFrameTabButtonTemplate" text="HELP" id="3">
 				<Anchors>
 					<Anchor point="RIGHT" relativeTo="$parentTab4" relativePoint="LEFT">
@@ -918,19 +916,19 @@
 				<Scripts>
 					<OnClick>
 						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-						GupPet_Interface_SetSelected( self , "MainTabs" ) ;
-						GupPet_Interface_Show( "MainTabs" ,"Show", GupPet_InterfaceOptionsFrameHelp ) ;
+						GupPet_Interface_SetSelected( self , "MainTabs" )
+						GupPet_Interface_Show( "MainTabs" ,"Show", GupPet_InterfaceOptionsFrameHelp )
 					</OnClick>
 					<OnLoad>
-						self:SetText(GUPPET_L["HELP"] ) ;
-						 						
-						GupPet_Interface_Show( "MainTabs" ,"Add", GupPet_InterfaceOptionsFrameHelp ) ;
+						self:SetText(GUPPET_L["HELP"] )
+
+						GupPet_Interface_Show( "MainTabs" ,"Add", GupPet_InterfaceOptionsFrameHelp )
 					</OnLoad>
 				</Scripts>
 			</Button>
-			
-			
-			
+
+
+
 		</Frames>
 	</Frame>
 
@@ -967,23 +965,23 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						self:SetCreature("22510") ;
-						self.TempRadians = 0 ;
-						
+						self:SetCreature("22510")
+						self.TempRadians = 0
+
 					</OnLoad>
 					<OnUpdate>
-						
+
 						self.TempRadians = self.TempRadians+( 1/ GetFramerate() * GUPPET_OPTIONS.PreviewFrameSpeed )
 						self:SetRotation( GUPPET_OPTIONS.PreviewFrameStartPos + self.TempRadians)
 					</OnUpdate>
 				</Scripts>
-			</PlayerModel>	
+			</PlayerModel>
 		</Frames>
 	</Frame>
-	
-	
-	
-	
+
+
+
+
 	<Button name="GupPet_IconTemplate" enableMouse="true" virtual="true">
 		<Size>
 			<AbsDimension x="25" y="25"/>
@@ -993,23 +991,23 @@
 				<Texture name="$parentIcon"/>
 			</Layer>
 		</Layers>
-	</Button>	
-	
-	
-	
-	
-	
-	
-	
+	</Button>
+
+
+
+
+
+
+
 	<Button name="GupPet_MinimapButton" parent="Minimap" hidden="true" enableMouse="true" frameStrata="LOW"  >
-		
+
 		<Size>
 			<AbsDimension x="33" y="33"/>
 		</Size>
 		<Anchors>
 			<Anchor point="CENTER"/>
         </Anchors>
-	
+
 		<Layers>
 			<Layer level="BORDER">
 				<Texture file="Interface\Icons\INV_Box_PetCarrier_01">
@@ -1025,7 +1023,7 @@
 					</Anchors>
                 </Texture>
 			</Layer>
-			
+
 			<Layer level="OVERLAY">
 				<Texture file="Interface\Minimap\MiniMap-TrackingBorder">
                     <Size>
@@ -1041,45 +1039,45 @@
                 </Texture>
 			</Layer>
 		</Layers>
-		
+
 		<HighlightTexture file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight" alphaMode="ADD"/>
-		
+
 		<Scripts>
 			<OnClick>
-				if GupPet_InterfaceOptionsFrame and GupPet_InterfaceOptionsFrame:IsShown() then	
-					HideUIPanel(GupPet_InterfaceOptionsFrame);
-				else	
-					ShowUIPanel(GupPet_InterfaceOptionsFrame); 
+				if GupPet_InterfaceOptionsFrame and GupPet_InterfaceOptionsFrame:IsShown() then
+					HideUIPanel(GupPet_InterfaceOptionsFrame)
+				else
+					ShowUIPanel(GupPet_InterfaceOptionsFrame)
 				end
 			</OnClick>
 			<OnLoad>
-				self:RegisterForDrag("LeftButton", "RightButton");
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForDrag("LeftButton", "RightButton")
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 			</OnLoad>
 			<OnDragStart>
-				self:SetScript("OnUpdate", GupPet_Interface_MinimapButton_OnDrag);
+				self:SetScript("OnUpdate", GupPet_Interface_MinimapButton_OnDrag)
 			</OnDragStart>
 			<OnDragStop>
-				self:SetScript("OnUpdate", nil);
+				self:SetScript("OnUpdate", nil)
 			</OnDragStop>
 			<OnEnter>
-				GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT");
-				GameTooltip:SetText("GupPet");
-				GameTooltip:Show() ;
+				GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT")
+				GameTooltip:SetText("GupPet")
+				GameTooltip:Show()
 			</OnEnter>
 			<OnLeave>
-				GameTooltip:Hide();
+				GameTooltip:Hide()
 			</OnLeave>
 		</Scripts>
 	</Button>
-	
-	
-	
-	
+
+
+
+
 	<CheckButton name="GupPet_IconPopupButtonTemplate" inherits="SimplePopupButtonTemplate" virtual="true">
 		<Scripts>
 			<OnClick>
-				GupPet_IconPopupButton_OnClick(self, button, down);
+				GupPet_IconPopupButton_OnClick(self, button, down)
 			</OnClick>
 		</Scripts>
 		<NormalTexture name="$parentIcon" nonBlocking="true">
@@ -1097,8 +1095,8 @@
 		<HighlightTexture alphaMode="ADD" file="Interface\Buttons\ButtonHilight-Square"/>
 		<CheckedTexture alphaMode="ADD" file="Interface\Buttons\CheckButtonHilight"/>
 	</CheckButton>
-	
-	
+
+
 	<Frame name="GupPet_IconPopupFrame" parent="GupPet_InterfaceOptionsFrame" framestrata="DIALOG" movable="true" enableMouse="true" hidden="true">
 		<Size>
 			<AbsDimension x="297" y="280"/>
@@ -1110,7 +1108,7 @@
 				</Offset>
 			</Anchor>
 		</Anchors>
-		
+
 		<Backdrop bgFile="Interface\AchievementFrame\UI-Achievement-AchievementBackground" edgeFile="Interface\DialogFrame\UI-DialogBox-Border"  >
 			<BackgroundInsets>
 				<AbsInset left="11" right="11" top="12" bottom="10"/>
@@ -1122,10 +1120,10 @@
 				<AbsValue val="32"/>
 			</EdgeSize>
 		</Backdrop>
-		
+
 		<Frames>
-		
-		
+
+
 			<Button name="$parentTab1" inherits="OptionsFrameTabButtonTemplate" text="" id="1">
 				<Anchors>
 					<Anchor point="BOTTOMLEFT"   relativePoint="TOPLEFT">
@@ -1137,16 +1135,16 @@
 				<Scripts>
 					<OnClick>
 						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-						GupPet_Interface_SetSelected( self , "IconTabs" ) ;
-						GupPet_IconPopupFrame_TabClick();
+						GupPet_Interface_SetSelected( self , "IconTabs" )
+						GupPet_IconPopupFrame_TabClick()
 					</OnClick>
 					<OnLoad>
-						GupPet_Interface_SetSelected( self , "IconTabs" ) ;
-						self:SetText( "Ground" ) ;
+						GupPet_Interface_SetSelected( self , "IconTabs" )
+						self:SetText( "Ground" )
 					</OnLoad>
 				</Scripts>
 			</Button>
-			
+
 			<Button name="$parentTab2" inherits="OptionsFrameTabButtonTemplate" text="" id="1">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parentTab1" relativePoint="RIGHT">
@@ -1158,15 +1156,15 @@
 				<Scripts>
 					<OnClick>
 						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-						GupPet_Interface_SetSelected( self , "IconTabs" ) ;
-						GupPet_IconPopupFrame_TabClick();
+						GupPet_Interface_SetSelected( self , "IconTabs" )
+						GupPet_IconPopupFrame_TabClick()
 					</OnClick>
 					<OnLoad>
-						self:SetText( "Fly" ) ;
+						self:SetText( "Fly" )
 					</OnLoad>
 				</Scripts>
 			</Button>
-			
+
 			<Button name="$parentTab3" inherits="OptionsFrameTabButtonTemplate" text="" id="1">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parentTab2" relativePoint="RIGHT">
@@ -1178,15 +1176,15 @@
 				<Scripts>
 					<OnClick>
 						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-						GupPet_Interface_SetSelected( self , "IconTabs" ) ;
-						GupPet_IconPopupFrame_TabClick();
+						GupPet_Interface_SetSelected( self , "IconTabs" )
+						GupPet_IconPopupFrame_TabClick()
 					</OnClick>
 					<OnLoad>
-						self:SetText( "Auto" ) ;
+						self:SetText( "Auto" )
 					</OnLoad>
 				</Scripts>
 			</Button>
-			
+
 			<Button name="$parentTab4" inherits="OptionsFrameTabButtonTemplate" text="" id="1">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="$parentTab3" relativePoint="RIGHT">
@@ -1198,16 +1196,16 @@
 				<Scripts>
 					<OnClick>
 						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
-						GupPet_Interface_SetSelected( self , "IconTabs" ) ;
-						GupPet_IconPopupFrame_TabClick();
+						GupPet_Interface_SetSelected( self , "IconTabs" )
+						GupPet_IconPopupFrame_TabClick()
 					</OnClick>
 					<OnLoad>
-						self:SetText( "Companion" ) ;
+						self:SetText( "Companion" )
 					</OnLoad>
 				</Scripts>
 			</Button>
-		
-		
+
+
 			<Frame name="$parentDatafield" inherits="GupPet_OptionsFrameTemplate"     >
 				<Size>
 					<AbsDimension x="280" y="194"/>
@@ -1219,17 +1217,17 @@
 						</Offset>
 					</Anchor>
 				</Anchors>
-				
+
 				<Scripts>
 					<OnLoad>
-						self:SetBackdropColor(0.5, 0.5, 0.5, 0.7);
-						
-						
+						self:SetBackdropColor(0.5, 0.5, 0.5, 0.7)
+
+
 					</OnLoad>
 				</Scripts>
-				
+
 				<Frames>
-				
+
 					<ScrollFrame name="GupPet_IconPopupScrollFrame" inherits="FauxScrollFrameTemplateLight">
 						<Size>
 							<AbsDimension x="270" y="180"/>
@@ -1243,11 +1241,11 @@
 						</Anchors>
 						<Scripts>
 							<OnVerticalScroll>
-								FauxScrollFrame_OnVerticalScroll(self, offset, 36, GupPet_IconPopupFrame_Update);
+								FauxScrollFrame_OnVerticalScroll(self, offset, 36, GupPet_IconPopupFrame_Update)
 							</OnVerticalScroll>
 						</Scripts>
 					</ScrollFrame>
-			
+
 					<CheckButton name="GupPet_IconPopupButton1" inherits="GupPet_IconPopupButtonTemplate" id="1">
 						<Anchors>
 							<Anchor point="TOPLEFT">
@@ -1428,11 +1426,11 @@
 					</Anchor>
 				</Anchors>
 			</CheckButton>
-				
+
 				</Frames>
 			</Frame>
-			
-			
+
+
 			<Button name="GupPet_IconPopupRestoreButton" inherits="UIPanelButtonTemplate" text="RESET">
 				<Size>
 					<AbsDimension x="78" y="22"/>
@@ -1446,13 +1444,13 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						GupPet_IconPopupFrame_RestoreEdit();
+						GupPet_IconPopupFrame_RestoreEdit()
 						PlaySound(798); --SOUNDKIT.GS_TITLE_OPTION_OK
 					</OnClick>
 				</Scripts>
 			</Button>
-			
-			
+
+
 			<Button name="GupPet_IconPopupCloseButton" inherits="UIPanelButtonTemplate" text="CLOSE">
 				<Size>
 					<AbsDimension x="78" y="22"/>
@@ -1466,30 +1464,34 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						GupPet_IconPopupFrame_CloseEdit();
+						GupPet_IconPopupFrame:Hide()
 						PlaySound(798); --SOUNDKIT.GS_TITLE_OPTION_OK
 					</OnClick>
 				</Scripts>
 			</Button>
-			
+
 		</Frames>
 		<Scripts>
 			<OnLoad>
-				self:SetBackdropColor(1, 1, 1, 0.6);
- 				self:RegisterForDrag("LeftButton");
+				self:SetBackdropColor(1, 1, 1, 0.6)
+ 				self:RegisterForDrag("LeftButton")
 			</OnLoad>
-			<OnShow function="GupPet_IconPopupFrame_OnShow"/>
+			<OnShow>
+				PlaySound(839)
+				GupPet_IconPopupFrame_TabClick()
+				GupPet_IconPopupFrame_Update()
+			</OnShow>
 			<OnDragStart>
-				self:StartMoving();
+				self:StartMoving()
 			</OnDragStart>
 			<OnDragStop>
-				self:StopMovingOrSizing();
+				self:StopMovingOrSizing()
 			</OnDragStop>
 		</Scripts>
 	</Frame>
-	
-	
-	
-	
-	
+
+
+
+
+
 </Ui>
