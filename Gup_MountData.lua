@@ -166,7 +166,6 @@ Gup_MountData = {
 [60024]={[10]=true},--Violet Proto-Drake
 [88746]={[10]=true},--Vitreous Stone Drake
 [88331]={[10]=true},--Volcanic Stone Drake
-[54729]={[10]=true},--Winged Steed of the Ebon Blade
 [71810]={[10]=true},--Wrathful Gladiator's Frost Wyrm
 [75973]={[1]=true,[10]=true,[30]= true},--X-53 Touring Rocket
 -- AQUATIC MOUNTS ---------------------------------------------------------
@@ -213,6 +212,21 @@ Gup_MountData = {
 [232412]={[1]=true,[10]=true,class="WARLOCK"},--Хаотический скакун гнева повелителя Пустоты
 [238452]={[1]=true,[10]=true,class="WARLOCK"},--Серный скакун гнева повелителя Пустоты
 [238454]={[1]=true,[10]=true,class="WARLOCK"},--Проклятый скакун гнева повелителя Пустоты
+-- old class mounts
+[48778]={[1]=true,class="DEATHKNIGHT"},--Acherus Deathcharger
+[54729]={[1]=true,[10]=true,class="DEATHKNIGHT"},--Winged Steed of the Ebon Blade
+[66906]={[1]=true,class="PALADIN"},--Argent Charger
+
+[73629]={[1]=true,class="PALADIN"},
+[73630]={[1]=true,class="PALADIN"},
+[13819]={[1]=true,class="PALADIN"},
+[23214]={[1]=true,class="PALADIN"},
+[34769]={[1]=true,class="PALADIN"},
+[34767]={[1]=true,class="PALADIN"},
+[69820]={[1]=true,class="PALADIN"},
+[69826]={[1]=true,class="PALADIN"},
+[23161]={[1]=true,class="WARLOCK"},
+[5784]={[1]=true,class="WARLOCK"},
 
 }
 
