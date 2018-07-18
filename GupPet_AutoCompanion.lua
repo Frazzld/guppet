@@ -8,7 +8,6 @@ local function GupPet_AutoCompanionResummonUpdate(self, elap)
 	GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed = GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed + elap
 
 	if GUPPET_AUTOCOMPANION.ResummonFrame.TotalElapsed > GUPPET_OPTIONS.AutoCompanion.Resummon then
-
 		if IsResting() or GUPPET_OPTIONS.AutoCompanion.ResummonEveryWhere then
 			GUPPET_AUTOCOMPANION.Force = true
 			GUPPET_AUTOCOMPANION.Frame:Show()
@@ -38,11 +37,11 @@ local function HasNoSummonBuff()
 	while UnitBuff("player",id) do
 		local name = UnitBuff("player", id)
 		if Spells[name] then
-			return false
+			return true
 		end
 		id = id + 1
 	end
-	return true
+	return false
 end
 
 local function GupPet_AutoCompanion_OnQuest()
@@ -71,8 +70,35 @@ local function GupPet_AutoCompanion_OnQuest()
 	return false
 end
 
-local function GupPet_AutoCompanionUpdate(self, elap)
+local function GupPet_AutoCompanionPetOfTheDay()
 
+	if GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Enabled then
+
+		local _, currentMonth, currentDay, currentYear = CalendarGetDate()
+
+		if GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Month == currentMonth
+			and GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Day == currentDay
+				and GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Year == currentYear then
+
+					C_PetJournal.SummonPetByGUID( GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.PetId )
+
+			return true
+		else
+			-- Get a new pet random
+			GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Month = currentMonth
+			GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Day = currentDay
+			GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Year = currentYear
+
+			return false
+		end
+	else
+		-- Its of go random
+
+		return false
+	end
+end
+
+local function GupPet_AutoCompanionUpdate(self, elap)
 	if IsMounted() or IsFlying() then
 		if GUPPET_OPTIONS.AutoCompanion.DismissMounted then
 			if C_PetJournal.GetSummonedPetGUID() then C_PetJournal.SummonPetByGUID(C_PetJournal.GetSummonedPetGUID()) end
@@ -105,6 +131,7 @@ local function GupPet_AutoCompanionUpdate(self, elap)
 			or UnitIsDead("player")
 			or UnitIsDeadOrGhost("player")
 			or HasNoSummonBuff() then
+
 			return
 		end
 
@@ -176,36 +203,7 @@ function GupPet_AutoCompanionBoot()
 	GupPet_AutoCompanionResumonSetEnable()
 end
 
-local function GupPet_AutoCompanionPetOfTheDay()
-
-	if GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Enabled then
-
-		local _, currentMonth, currentDay, currentYear = CalendarGetDate()
-
-		if GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Month == currentMonth
-			and GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Day == currentDay
-				and GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Year == currentYear then
-
-					C_PetJournal.SummonPetByGUID( GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.PetId )
-
-			return true
-		else
-			-- Get a new pet random
-			GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Month = currentMonth
-			GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Day = currentDay
-			GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Year = currentYear
-
-			return false
-		end
-	else
-		-- Its of go random
-
-		return false
-	end
-end
-
 function GupPet_AutoCompanionResumonSetEnable()
-
 	if GUPPET_OPTIONS.AutoCompanion and GUPPET_OPTIONS.AutoCompanion.Resummon > 0 then
 		GUPPET_AUTOCOMPANION.ResummonFrame:Show()
 	else
