@@ -1164,7 +1164,7 @@ end
 ----------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------
 function GupPet_IconPopupFrame_OnShow(self)
-	PlaySound("igCharacterInfoOpen");
+	PlaySound(839);--SOUNDKIT.IG_CHARACTER_INFO_OPEN
 	GupPet_IconPopupFrame_TabClick();
 	GupPet_IconPopupFrame_Update(self);
 end

@@ -384,7 +384,7 @@
 		</HighlightTexture>
 		<Scripts>
 			<OnClick>
-				PlaySound("igMainMenuOptionCheckBoxOn");
+				PlaySound(856); --SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON
 			
 				GupPet_Interface_RemoveLocationSelected();
 				GupPet_Interface_SetLocationSelected( self ) ;
@@ -557,7 +557,7 @@
 										self.tooltipText = GUPPET_L["ADD"][2] ;
 									</OnLoad>
 									<OnClick>
-										PlaySound("igCharacterInfoTab");
+										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 										
 										-- Get some zone info first --
 										local _, instanceType = IsInInstance() ;
@@ -601,7 +601,7 @@
 									</OnLoad>
 									<OnClick>
 									
-										PlaySound("igCharacterInfoTab");
+										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 										-- GupPet_Location( "Remove" , GupPet_Interface_GetLocationSelected() ) ;
 										StaticPopup_Show ("GupPet_Interface_Remove", GupPet_Interface_GetLocationSelected() ) ;
 										
@@ -739,7 +739,7 @@
 										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Hide();
 										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Hide();
 										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
-										PlaySound("igCharacterInfoTab");
+										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 									</OnClick>
 								</Scripts>
 							</Button>
@@ -760,7 +760,7 @@
 										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Hide();
 										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Hide();
 										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
-										PlaySound("igCharacterInfoTab");
+										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 									</OnClick>
 									<OnLoad>
 										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
@@ -787,7 +787,7 @@
 										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Show();
 										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Hide();
 										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
-										PlaySound("igCharacterInfoTab");
+										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 									</OnClick>
 									<OnLoad>
 										self:SetText(GUPPET_L["ALLFLYMOUNT"][1]) ;
@@ -811,7 +811,7 @@
 										GupPet_InterfaceOptionsFrameMountsCompanionsMainFly:Hide();
 										GupPet_InterfaceOptionsFrameMountsCompanionsMainCompanion:Show();
 										GupPet_Interface_SetSelected( self , "TypeTabs" ) ;
-										PlaySound("igCharacterInfoTab");
+										PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 									</OnClick>
 									<OnLoad>
 										self:SetText(GUPPET_L["ALLCOMPANION"][1]) ;
@@ -843,7 +843,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						PlaySound("igCharacterInfoTab");
+						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 						GupPet_Interface_SetSelected( self , "MainTabs" ) ;
 						
 						GupPet_Interface_Show( "MainTabs" ,"Show", GupPet_InterfaceOptionsFrameOptions ) ;
@@ -868,7 +868,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						PlaySound("igCharacterInfoTab");
+						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 						GupPet_Interface_SetSelected( self , "MainTabs" ) ;
 						GupPet_Interface_Show( "MainTabs" ,"Show", GupPet_InterfaceOptionsFrameMountsCompanions ) ;
 					</OnClick>
@@ -893,7 +893,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						PlaySound("igCharacterInfoTab");
+						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 						
 						 GupPet_InterfaceOptionsFrame:Hide();
 					</OnClick>
@@ -917,7 +917,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						PlaySound("igCharacterInfoTab");
+						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 						GupPet_Interface_SetSelected( self , "MainTabs" ) ;
 						GupPet_Interface_Show( "MainTabs" ,"Show", GupPet_InterfaceOptionsFrameHelp ) ;
 					</OnClick>
@@ -1136,7 +1136,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						PlaySound("igCharacterInfoTab");
+						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 						GupPet_Interface_SetSelected( self , "IconTabs" ) ;
 						GupPet_IconPopupFrame_TabClick();
 					</OnClick>
@@ -1157,7 +1157,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						PlaySound("igCharacterInfoTab");
+						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 						GupPet_Interface_SetSelected( self , "IconTabs" ) ;
 						GupPet_IconPopupFrame_TabClick();
 					</OnClick>
@@ -1177,7 +1177,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						PlaySound("igCharacterInfoTab");
+						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 						GupPet_Interface_SetSelected( self , "IconTabs" ) ;
 						GupPet_IconPopupFrame_TabClick();
 					</OnClick>
@@ -1197,7 +1197,7 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						PlaySound("igCharacterInfoTab");
+						PlaySound(841); --SOUNDKIT.IG_CHARACTER_INFO_TAB
 						GupPet_Interface_SetSelected( self , "IconTabs" ) ;
 						GupPet_IconPopupFrame_TabClick();
 					</OnClick>
@@ -1447,7 +1447,7 @@
 				<Scripts>
 					<OnClick>
 						GupPet_IconPopupFrame_RestoreEdit();
-						PlaySound("gsTitleOptionOK");
+						PlaySound(798); --SOUNDKIT.GS_TITLE_OPTION_OK
 					</OnClick>
 				</Scripts>
 			</Button>
@@ -1467,7 +1467,7 @@
 				<Scripts>
 					<OnClick>
 						GupPet_IconPopupFrame_CloseEdit();
-						PlaySound("gsTitleOptionOK");
+						PlaySound(798); --SOUNDKIT.GS_TITLE_OPTION_OK
 					</OnClick>
 				</Scripts>
 			</Button>
