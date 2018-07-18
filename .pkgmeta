@@ -1,3 +1,10 @@
+externals:
+  Libs/LibPetJournal-2.0:
+    url: http://hg.curseforge.net/wow/libpetjournal-2-0/mainline
+    tag: latest
+
+enable-nolib-creation: no
+
 manual-changelog:
   filename: CHANGELOG.txt
   markup-type: markdown
