@@ -203,7 +203,7 @@ function GupPet_Interface_BuildMacro( self, option )
 				
 			elseif GUPPET_TEMPRACEDATA.Type == "Worgen" and GUPPET_TEMPRACEDATA["RunningWild"]["Usable"] and GUPPET_OPTIONS["Class"]["RunningWild"] then
 			
-				self:SetAttribute("shift-macrotext1", "/cancelform\n/use "..GUPPET_TEMPRACEDATA["RunningWild"]["Name"] );
+				self:SetAttribute("macrotext", "/cancelform\n/use "..GUPPET_TEMPRACEDATA["RunningWild"]["Name"] );
 			elseif (GetShapeshiftFormID() == MOONKIN_FORM) then
 				self:SetAttribute("macrotext"		, "/script GupPet_AutoGround()" )
 			else
