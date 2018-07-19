@@ -426,6 +426,7 @@ local function GupPet_ProfessionUpdate()
 	return profEngineer, profTailor, profLeather
 end
 
+local playerClass = select(2, UnitClass("player"))
 local function GupPet_IsMountUsable(mountID, creatureSpellID, isFactionSpecific, faction, hideOnChar, isCollected, classSpecific)
 
 	if hideOnChar then
@@ -446,7 +447,7 @@ local function GupPet_IsMountUsable(mountID, creatureSpellID, isFactionSpecific,
 		end
 	end
 
-	if classSpecific and classSpecific ~= UnitClass("player") then return false end
+	if classSpecific and classSpecific ~= playerClass then return false end
 
 	--profession required mounts check
 	local profEngineer, profTailor, profLeather = GupPet_ProfessionUpdate()
@@ -498,7 +499,7 @@ function GupPet_UpdateDataList()
 		local detected = false
 
 		local DBMountData = Gup_MountData[creatureSpellID]
-		if GupPet_IsMountUsable(mountID, creatureSpellID, isFactionSpecific, faction, hideOnChar, isCollected, DBMountData and DBMountData.class or nil) then
+		if GupPet_IsMountUsable(mountID, creatureSpellID, isFactionSpecific, faction, hideOnChar, isCollected, DBMountData and DBMountData.class) then
 			if DBMountData then
 
 				if DBMountData[1] then
