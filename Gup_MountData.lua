@@ -234,7 +234,8 @@ Gup_MountData = {
 [69826]={[1]=true,class="PALADIN"},
 [23161]={[1]=true,class="WARLOCK"},
 [5784]={[1]=true,class="WARLOCK"},
-
+-- BfA
+[264058]={[1]=true,[30]=true},--Mighty Caravan Brutosaur
 }
 
 
