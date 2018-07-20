@@ -14,6 +14,13 @@
 ]]
 
 Gup_MountData = {
+[61465]={[1]=true,[30]=true},--Grand Black War Mammoth
+[61467]={[1]=true,[30]=true},--Grand Black War Mammoth
+[122708]={[1]=true,[30]=true},--Grand Expedition Yak
+[61469]={[1]=true,[30]=true},--Grand Ice Mammoth
+[61470]={[1]=true,[30]=true},--Grand Ice Mammoth
+[55531]={[1]=true,[30]=true},--Mechano-hog
+[60424]={[1]=true,[30]=true},--Mekgineer's Chopper
 [61425]={[1]=true,[30]=true},--Traveler's Tundra Mammoth
 [61447]={[1]=true,[30]=true},--Traveler's Tundra Mammoth
 -- Qiraji
