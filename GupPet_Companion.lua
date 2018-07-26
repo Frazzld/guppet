@@ -35,7 +35,7 @@ local function GupPet_CallCompanion( Location )
 		GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.PetId = CompanionSlots[randomMount]
 
 	elseif HasSummoned then
-		GupPet_Text( L["CANTCALLCOMPANIONONEINTHETABLE"] )
+		GupPet_Text( GUPPET_T["CANTCALLCOMPANIONONEINTHETABLE"] )
 	end
 end
 
@@ -76,7 +76,7 @@ function GupPet_PreCallCompanion()
 		return true
 	end
 
-	GupPet_Text( L["CANTCALLCOMPANION"] )
+	GupPet_Text( GUPPET_T["CANTCALLCOMPANION"] )
 	return false
 end
 
