@@ -480,9 +480,6 @@ end
 
 function GupPet_UpdateDataList()
 
-	-- Update Companion list
-	GupPet_UpdateCompanionDataList()
-
 	GupPet_Debug( "GupPet_UpdateDataList Start" )
 
 	local	GUPPET_SAVEDDATA_TEMP = { Ground = { Total=0  } , Fly = { Total=0} , Multi = { Total=0}, Aquatic = { Total=0} , Unknown= { Total=0} , Companion = { Total=0}  }
