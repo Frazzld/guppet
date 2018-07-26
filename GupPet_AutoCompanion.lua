@@ -74,7 +74,11 @@ local function GupPet_AutoCompanionPetOfTheDay()
 
 	if GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Enabled then
 
-		local _, currentMonth, currentDay, currentYear = CalendarGetDate()
+		local date = C_Calendar.GetDate()
+		local currentMonth = date.month
+		local currentDay = date.monthDay
+		local currentYear = date.year
+
 
 		if GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Month == currentMonth
 			and GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Day == currentDay
