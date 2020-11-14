@@ -397,7 +397,7 @@ end
 function GupPet_Interface_IngameButtons()
 	if GUPPET_INTERFACE_INGAMEBUTTONS.Init == 0  then
 
-		GUPPET_INTERFACE_INGAMEBUTTONS.Frame = CreateFrame("FRAME", "GupPet_IngameFrameTemplate", UIParent , "GupPet_IngameFrameTemplate" )
+		GUPPET_INTERFACE_INGAMEBUTTONS.Frame = CreateFrame("FRAME", "GupPet_IngameFrameTemplate", UIParent , "GupPet_IngameFrameTemplate", "BackdropTemplate" )
 		GUPPET_INTERFACE_INGAMEBUTTONS.Frame:SetWidth(32)
 		GUPPET_INTERFACE_INGAMEBUTTONS.Frame:SetHeight(32)
 		GUPPET_INTERFACE_INGAMEBUTTONS.Frame:SetClampedToScreen( true )

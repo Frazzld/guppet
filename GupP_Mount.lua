@@ -5,10 +5,10 @@ local function GupP_Mount_CanFlyThisContinent()
 
 	local continent = MapUtil.GetMapParentInfo(C_Map.GetBestMapForUnit("player"), Enum.UIMapType.Continent).mapID
 
-	if continent == 875 or continent == 876 then -- BfA
-		-- if not IsSpellKnown() then -- TODO:insert BfA Pathfinder
+	if continent == 875 or continent == 876 then -- BfA - thanks to user yuret2003 for the spellID
+		 if not IsSpellKnown(278833) then
 			return false
-		-- end
+		 end
 	elseif continent == 619 then -- Broken Isles
 		if not IsSpellKnown(233368) then	-- Broken Isles Pathfinder
 			return false
@@ -33,6 +33,50 @@ local function GupP_Mount_CanFlyThisContinent()
 end
 
 function GupPet_CanFly()
+
+	-- Changes added by grimmtooth@gmail.com to accommodate warfront 20-man scenarios and other
+	-- misfit toys such as island expeditions
+	-- Crude but effective.
+
+	local mapID = C_Map.GetBestMapForUnit("player")
+	-- Uncomment this to get a debug of the zone you're in, handy for when they add
+	-- new zones to the mix.
+    print(format("Map ID = [%d]", mapID))
+
+	-- list of zones that don't return proper 'can fly' values so we have to override by brute force
+	local oddZones = {
+		649,	-- Legion - Helheim
+		726,	-- Legion - Shaman Maelstrom
+
+		1203, 	-- BfA - Darkshore warfront
+		1044,	-- BfA - Arathi warfront
+		1355,	-- BfA - Nazjatar
+
+		-- Island Expeditions - thanks to 'milotic03' @Curse
+		1036,	-- Dread Chain
+		1336,	-- Havenswood
+		1337, 	-- Jorundall
+		1035, 	-- Molten Cray
+		1033, 	-- Rotting Mire
+		981, 	-- Un'gol Ruins
+		1032, 	-- Skittering Hollow
+		1034, 	-- Verdant Wilds
+		1037,  	-- Whispering Reef
+		1502,  	-- Snowblossom Village
+
+		-- N'zoth Assaults
+		1570,	-- The Summer Terrace (Pandaria)
+	}
+
+	if tContains(oddZones, mapID) then
+		if mapID == 1355 and IsSpellKnown(278833) then -- BfA - thanks to user yuret2003 for the spellID
+			return true
+		else
+			return false
+		end
+	end
+
+	-- end local changes by grimmtooth
 
 	if  not(IsFlyableArea()) then
 		return false

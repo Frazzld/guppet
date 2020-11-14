@@ -1,4 +1,4 @@
-﻿<Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+<Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
 
 
 	<Font name="GupPet_FontText" inherits="SystemFont_Tiny" virtual="true">
@@ -254,7 +254,7 @@
 	</Frame>
 
 	<Frame name="GupPet_DataFieldTemplate"     virtual="true" >
-		 <Backdrop edgeFile="Interface\Tooltips\UI-Tooltip-Border" bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true">
+		 <Backdrop edgeFile="Interface\Tooltips\UI-Tooltip-Border" bgFile="Interface\DialogFrame\UI-DialogBox-Background" tile="true" alphaMode="ADD">
 			<EdgeSize>
 				<AbsValue val="16"/>
 			</EdgeSize>
@@ -264,6 +264,7 @@
 			<BackgroundInsets>
 				<AbsInset left="5" right="5" top="5" bottom="5"/>
 			</BackgroundInsets>
+			<Color r="0.5" g="0.5" b="0.5" a="0.7"/><BorderColor r="0.5" g="0.5" b="0.5" a="0.7"/>
 		</Backdrop>
 		<Layers>
 			<Layer level="OVERLAY">
@@ -325,10 +326,10 @@
 			</Frame>
 	 	</Frames>
 		<Scripts>
-			<OnLoad>
+			<OnLoad inherit="prepend">
 
-				self:SetBackdropColor(0.5, 0.5, 0.5, 0.7)
-
+				<!--self:SetBackdropColor(0.5, 0.5, 0.5, 0.7)-->
+				
 				local temp_Name = self:GetName()
 				_G[ temp_Name .. "Container"]:SetScrollChild( _G[ temp_Name .. "Data"] )
 
@@ -345,10 +346,13 @@
 			<EdgeSize>
 				<AbsValue val="15"/>
 			</EdgeSize>
+			<Color r="1" g="1" b="1" a="0.7" /><BorderColor r="1" g="1" b="1" a="0.7" />
 		</Backdrop>
 		<Scripts>
-			<OnLoad>
-				self:SetBackdropColor(1, 1, 1, 0.7)
+			<OnLoad inherit="prepend">
+				
+				<!--self:SetBackdropColor(1, 1, 1, 0.7)-->
+				
 			</OnLoad>
 		</Scripts>
 	</Frame>
@@ -401,7 +405,7 @@
 		<Anchors>
 			<Anchor point="CENTER"/>
 		</Anchors>
-		<Backdrop bgFile="Interface\AchievementFrame\UI-Achievement-StatsBackground" edgeFile="Interface\DialogFrame\UI-DialogBox-Border"  >
+		<Backdrop bgFile="Interface\AchievementFrame\UI-Achievement-StatsBackground" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="True" AlphaMode="BLEND">
 			<BackgroundInsets>
 				<AbsInset left="11" right="11" top="12" bottom="10"/>
 			</BackgroundInsets>
@@ -411,6 +415,7 @@
 			<EdgeSize>
 				<AbsValue val="32"/>
 			</EdgeSize>
+			<Color r="1" g="1" b="1" a="0.6"/><BorderColor r="1" g="1" b="1" a="0.6"/>
 		</Backdrop>
 
 		<Layers>
@@ -465,7 +470,7 @@
 
 		<Scripts>
 			<OnLoad>
-				self:SetBackdropColor(1, 1, 1, 0.6)
+				<!--self:SetBackdropColor(1, 1, 1, 0.6)-->
 				GupPet_InterfaceOptionsFrameVersionHeaderText:SetText("v ".. GetAddOnMetadata("GupPet", "Version"))
 
 				self:RegisterForDrag("LeftButton")
@@ -1220,7 +1225,7 @@
 
 				<Scripts>
 					<OnLoad>
-						self:SetBackdropColor(0.5, 0.5, 0.5, 0.7)
+						<!--self:SetBackdropColor(0.5, 0.5, 0.5, 0.7)-->
 
 
 					</OnLoad>
@@ -1473,7 +1478,7 @@
 		</Frames>
 		<Scripts>
 			<OnLoad>
-				self:SetBackdropColor(1, 1, 1, 0.6)
+				<!--self:SetBackdropColor(1, 1, 1, 0.6)-->
  				self:RegisterForDrag("LeftButton")
 			</OnLoad>
 			<OnShow>

@@ -1,4 +1,4 @@
-﻿--[[ 	GupPet by Gup 	]]--
+--[[ 	GupPet by Gup 	]]--
 
 -- TEMP VARS
 GUPPET_AUTOCOMPANION = {}

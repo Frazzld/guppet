@@ -1,4 +1,4 @@
-﻿--[[ 	GupPet by Gup 	]]--
+--[[ 	GupPet by Gup 	]]--
 
 -- typeMount --> 1 = 60%
 			 --> 2 = 100%

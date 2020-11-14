@@ -81,10 +81,10 @@ end
 
 function GupPet_Interface_MakeButtons()
 
-	local Optionframe = CreateFrame( "Frame", "GupPetPanel" , nil )
+	local Optionframe = CreateFrame( "Frame", "GupPetPanel" , nil, BackdropTemplateMixin and "BackdropTemplate" )
 	Optionframe.name = "GupPet"
 
-	local Optionframe_Button = CreateFrame("Button", "GupPet_OptionButton", Optionframe , "GupPet_ButtonTemplate")
+	local Optionframe_Button = CreateFrame("Button", "GupPet_OptionButton", Optionframe , "GupPet_ButtonTemplate", "BackdropTemplate")
 	Optionframe_Button:SetScript("OnClick", function ()  ShowUIPanel(GupPet_InterfaceOptionsFrame); end)
 	Optionframe_Button:SetWidth(200)
 	Optionframe_Button:SetHeight(30)
@@ -97,61 +97,61 @@ end
 function GupPet_Interface_Option()
 
 	-- AutoCompanion
-	GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame = CreateFrame("FRAME", "GupPet_AutoCompanionFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame = CreateFrame("FRAME", "GupPet_AutoCompanionFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame:SetWidth(220)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame:SetHeight(280)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame:SetPoint("TOPLEFT", 260 , -30)
 	_G["GupPet_AutoCompanionFrame" .. "SubTitle"]:SetText("|cFFFC830E".. GUPPET_L["AUTOCALLCOMPANION"] )
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion = CreateFrame("CheckButton", "GupPet_AutoCompanion"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "OptionsSmallCheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion = CreateFrame("CheckButton", "GupPet_AutoCompanion"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "OptionsSmallCheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion:SetPoint("TOPLEFT", 10, -10 )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion:SetScript("OnClick", function (self, button, down) GUPPET_OPTIONS.AutoCompanion.Enabled=self:GetChecked(); GupPet_AutoCompanionSetEnable()    end)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion:SetChecked(  GUPPET_OPTIONS.AutoCompanion.Enabled )
 	_G["GupPet_AutoCompanion" .. "Text"]:SetText( GUPPET_L["AUTOCALLCOMPANION_ENABLE"][1]  )
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_City = CreateFrame("CheckButton", "GupPet_AutoCompanionCity"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_City = CreateFrame("CheckButton", "GupPet_AutoCompanionCity"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_City:SetPoint("TOPLEFT", 20, -32 )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_City:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS.AutoCompanion.City = self:GetChecked();     end)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_City:SetChecked(  GUPPET_OPTIONS.AutoCompanion.City )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_City:SetHitRectInsets( 0 , -50, 0 , 0)
 	_G["GupPet_AutoCompanionCity" .. "Text"]:SetText( GUPPET_L["AUTOCALLCOMPANION_CITY"][1]  )
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Outside = CreateFrame("CheckButton", "GupPet_AutoCompanionOutside"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Outside = CreateFrame("CheckButton", "GupPet_AutoCompanionOutside"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Outside:SetPoint("TOPLEFT", 20, -47 )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Outside:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS.AutoCompanion.Outside = self:GetChecked();    end)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Outside:SetChecked(  GUPPET_OPTIONS.AutoCompanion.Outside )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Outside:SetHitRectInsets( 0 , -50, 0 , 0)
 	_G["GupPet_AutoCompanionOutside" .. "Text"]:SetText( GUPPET_L["AUTOCALLCOMPANION_OUTSIDE"][1]  )
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Arena = CreateFrame("CheckButton", "GupPet_AutoCompanionArena"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Arena = CreateFrame("CheckButton", "GupPet_AutoCompanionArena"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Arena:SetPoint("TOPLEFT", 20, -62 )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Arena:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS.AutoCompanion.Arena = self:GetChecked();     end)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Arena:SetChecked(  GUPPET_OPTIONS.AutoCompanion.Arena )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Arena:SetHitRectInsets( 0 , -50, 0 , 0)
 	_G["GupPet_AutoCompanionArena" .. "Text"]:SetText( GUPPET_L["AUTOCALLCOMPANION_ARENA"][1]  )
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Party = CreateFrame("CheckButton", "GupPet_AutoCompanionParty"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Party = CreateFrame("CheckButton", "GupPet_AutoCompanionParty"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Party:SetPoint("TOPLEFT", 20, -77 )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Party:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS.AutoCompanion.Party = self:GetChecked();     end)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Party:SetChecked(  GUPPET_OPTIONS.AutoCompanion.Party )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Party:SetHitRectInsets( 0 , -50, 0 , 0)
 	_G["GupPet_AutoCompanionParty" .. "Text"]:SetText( GUPPET_L["AUTOCALLCOMPANION_PARTY"][1]  )
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Raid = CreateFrame("CheckButton", "GupPet_AutoCompanionRaid"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Raid = CreateFrame("CheckButton", "GupPet_AutoCompanionRaid"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Raid:SetPoint("TOPLEFT", 20, -92 )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Raid:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS.AutoCompanion.Raid = self:GetChecked();     end)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Raid:SetChecked(  GUPPET_OPTIONS.AutoCompanion.Raid )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_Raid:SetHitRectInsets( 0 , -50, 0 , 0)
 	_G["GupPet_AutoCompanionRaid" .. "Text"]:SetText( GUPPET_L["AUTOCALLCOMPANION_RAID"][1]  )
 
-	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_BattleGround = CreateFrame("CheckButton", "GupPet_AutoCompanionBattleGround"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_BattleGround = CreateFrame("CheckButton", "GupPet_AutoCompanionBattleGround"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_BattleGround:SetPoint("TOPLEFT", 20, -107 )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_BattleGround:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS.AutoCompanion.BattleGround = self:GetChecked();    end)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_BattleGround:SetChecked(  GUPPET_OPTIONS.AutoCompanion.BattleGround )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCompanion_BattleGround:SetHitRectInsets( 0 , -90, 0 , 0)
 	_G["GupPet_AutoCompanionBattleGround" .. "Text"]:SetText( GUPPET_L["AUTOCALLCOMPANION_BATTLEGROUND"][1]  )
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.AutoCallDelay = CreateFrame('Slider', "GupPet_AutoCallDelay", GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame , 'OptionsSliderTemplate')
+	GUPPET_INTERFACE_OPTIONFRAME.AutoCallDelay = CreateFrame('Slider', "GupPet_AutoCallDelay", GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame , 'OptionsSliderTemplate', "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCallDelay:SetPoint('TOP', 0, -140)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCallDelay:SetOrientation('HORIZONTAL')
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCallDelay:SetWidth(140)
@@ -167,13 +167,13 @@ function GupPet_Interface_Option()
 	GUPPET_INTERFACE_OPTIONFRAME.AutoCallDelay.tooltipText = GUPPET_L["AUTOCALLCOMPANION_DELAY"][2]
 
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.DismissMounted = CreateFrame("CheckButton", "GupPet_DismissMounted"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "OptionsSmallCheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.DismissMounted = CreateFrame("CheckButton", "GupPet_DismissMounted"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "OptionsSmallCheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.DismissMounted:SetPoint("TOPLEFT", 10, -170 )
 	GUPPET_INTERFACE_OPTIONFRAME.DismissMounted:SetScript("OnClick", function (self, button, down) GUPPET_OPTIONS.AutoCompanion.DismissMounted=self:GetChecked();     end)
 	GUPPET_INTERFACE_OPTIONFRAME.DismissMounted:SetChecked(  GUPPET_OPTIONS.AutoCompanion.DismissMounted )
 	_G["GupPet_DismissMounted" .. "Text"]:SetText( GUPPET_L["AUTOCALLCOMPANION_AUTODISMISSMOUNTED"][1]  )
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonDelay = CreateFrame('Slider', "GupPet_AutoResummonDelay", GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame , 'GupPet_OptionsSliderTemplate')
+	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonDelay = CreateFrame('Slider', "GupPet_AutoResummonDelay", GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame , 'GupPet_OptionsSliderTemplate', "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonDelay:SetPoint('TOP', 0, -205)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonDelay:SetOrientation('HORIZONTAL')
 	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonDelay:SetWidth(140)
@@ -189,7 +189,7 @@ function GupPet_Interface_Option()
 	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonDelay.tooltipText = GUPPET_L["AUTOCALLCOMPANION_RESUMMON"][2]
 	_G["GupPet_AutoResummonDelay" .. "Current"]:SetText(GUPPET_OPTIONS.AutoCompanion.Resummon)
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonCityOnly = CreateFrame("CheckButton", "GupPet_AutoResummonCityOnly"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonCityOnly = CreateFrame("CheckButton", "GupPet_AutoResummonCityOnly"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonCityOnly:SetPoint("TOPLEFT", 20, -233 )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonCityOnly:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS.AutoCompanion.ResummonEveryWhere = not(self:GetChecked());    end)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoResummonCityOnly:SetChecked(  not(GUPPET_OPTIONS.AutoCompanion.ResummonEveryWhere) )
@@ -197,7 +197,7 @@ function GupPet_Interface_Option()
 	_G["GupPet_AutoResummonCityOnly" .. "Text"]:SetText( GUPPET_L["AUTOCALLCOMPANION_RESUMMONCITYONLY"][1] )
 
 	--
-	GUPPET_INTERFACE_OPTIONFRAME.PetOfTheDay = CreateFrame("CheckButton", "GupPet_PetOfTheDay"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "OptionsSmallCheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.PetOfTheDay = CreateFrame("CheckButton", "GupPet_PetOfTheDay"  , GUPPET_INTERFACE_OPTIONFRAME.AutoCallCompanionFrame, "OptionsSmallCheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.PetOfTheDay:SetPoint("TOPLEFT", 10, -250 )
 	GUPPET_INTERFACE_OPTIONFRAME.PetOfTheDay:SetScript("OnClick", function (self, button, down) GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Enabled=self:GetChecked();     end)
 	GUPPET_INTERFACE_OPTIONFRAME.PetOfTheDay:SetChecked(  GUPPET_OPTIONS.AutoCompanion.PetOfTheDay.Enabled )
@@ -209,19 +209,19 @@ function GupPet_Interface_Option()
 	----------------------------------------------------------------------------
 	--Buttons
 
-	GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame = CreateFrame("FRAME", "GupPet_IngameButtonFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame = CreateFrame("FRAME", "GupPet_IngameButtonFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame:SetWidth(240)
 	GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame:SetHeight(165)
 	GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame:SetPoint("TOPLEFT", 10 , -30)
 	_G["GupPet_IngameButtonFrame" .. "SubTitle"]:SetText("|cFFFC830E".. GUPPET_L["INGAMEBUTTONS"][1] )
 
-	GUPPET_INTERFACE_OPTIONFRAME.UIShow = CreateFrame("CheckButton", "GupPet_IngameButtonShow"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "OptionsSmallCheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.UIShow = CreateFrame("CheckButton", "GupPet_IngameButtonShow"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "OptionsSmallCheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.UIShow:SetPoint("TOPLEFT", 10, -10 )
 	GUPPET_INTERFACE_OPTIONFRAME.UIShow:SetScript("OnClick", function (self, button, down)  GUPPET_OPTIONS["IngameButton"]["Show"]=self:GetChecked();  GupPet_Interface_IngameButtons();   end)
 	GUPPET_INTERFACE_OPTIONFRAME.UIShow:SetChecked(  GUPPET_OPTIONS["IngameButton"]["Show"] )
 	_G["GupPet_IngameButtonShow" .. "Text"]:SetText( GUPPET_L["SHOW"][1]  )
 
-	GUPPET_INTERFACE_OPTIONFRAME.Icon = CreateFrame("Button", "GupPet_Icons", GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame , "GupPet_ButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.Icon = CreateFrame("Button", "GupPet_Icons", GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame , "GupPet_ButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.Icon:SetScript("OnClick", function ()  if GupPet_IconPopupFrame:IsShown() then GupPet_IconPopupFrame:Hide() else GupPet_IconPopupFrame:Show() end end)
 	GUPPET_INTERFACE_OPTIONFRAME.Icon:SetWidth(75)
 	GUPPET_INTERFACE_OPTIONFRAME.Icon:SetHeight(15)
@@ -231,14 +231,14 @@ function GupPet_Interface_Option()
 	GUPPET_INTERFACE_OPTIONFRAME.Icon:SetNormalFontObject( GupPet_FontText)
 	GUPPET_INTERFACE_OPTIONFRAME.Icon:SetHighlightFontObject( GupPet_FontText)
 
-	GUPPET_INTERFACE_OPTIONFRAME.UIDrag = CreateFrame("CheckButton", "GupPet_IngameButtonDrag"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.UIDrag = CreateFrame("CheckButton", "GupPet_IngameButtonDrag"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.UIDrag:SetPoint("TOPLEFT", 20, -32 )
 	GUPPET_INTERFACE_OPTIONFRAME.UIDrag:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["IngameButton"]["Lock"] = self:GetChecked() ;   if self:GetChecked() then GupPet_Interface_DragIngameButtons( "Hide" ) else GupPet_Interface_DragIngameButtons( "Show" ) end   ;  end)
 	GUPPET_INTERFACE_OPTIONFRAME.UIDrag:SetChecked(  GUPPET_OPTIONS["IngameButton"]["Lock"] )
 	GUPPET_INTERFACE_OPTIONFRAME.UIDrag:SetHitRectInsets( 0 , -50, 0 , 0)
 	_G["GupPet_IngameButtonDrag" .. "Text"]:SetText( GUPPET_L["LOCKED"][1]  )
 
-	GUPPET_INTERFACE_OPTIONFRAME.Restore = CreateFrame("Button", "GupPet_Restore", GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame , "GupPet_ButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.Restore = CreateFrame("Button", "GupPet_Restore", GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame , "GupPet_ButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.Restore:SetScript("OnClick", function ()  GupPet_Interface_DragIngameButtons( "Reset" ); end)
 	GUPPET_INTERFACE_OPTIONFRAME.Restore:SetWidth(75)
 	GUPPET_INTERFACE_OPTIONFRAME.Restore:SetHeight(15)
@@ -249,27 +249,27 @@ function GupPet_Interface_Option()
 	GUPPET_INTERFACE_OPTIONFRAME.Restore:SetHighlightFontObject( GupPet_FontText)
 
 
-	GUPPET_INTERFACE_OPTIONFRAME.ButtonMode = CreateFrame("CheckButton", "GupPet_ButtonMode"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.ButtonMode = CreateFrame("CheckButton", "GupPet_ButtonMode"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonMode:SetPoint("TOPLEFT", 20, -47 )
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonMode:SetScript("OnClick", function (self, button, down)  if self:GetChecked() then GUPPET_OPTIONS.IngameButton.MountButton = "Auto"   else GUPPET_OPTIONS.IngameButton.MountButton = "Hand"  end ; GupPet_Interface_IngameButtons(); end)
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonMode:SetChecked(  GUPPET_OPTIONS.IngameButton.MountButton == "Auto" )
 	_G["GupPet_ButtonMode" .. "Text"]:SetText( GUPPET_L["BUTTONMODE"][1]  )
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonMode.tooltipText = GUPPET_L["BUTTONMODE"][2]
 
-	GUPPET_INTERFACE_OPTIONFRAME.CompanionButtonShow = CreateFrame("CheckButton", "GupPet_CompanionButtonShow"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.CompanionButtonShow = CreateFrame("CheckButton", "GupPet_CompanionButtonShow"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.CompanionButtonShow:SetPoint("TOPLEFT", 20, -62 )
 	GUPPET_INTERFACE_OPTIONFRAME.CompanionButtonShow:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS.IngameButton.CompanionButton = self:GetChecked() ;  GupPet_Interface_IngameButtons();  end)
 	GUPPET_INTERFACE_OPTIONFRAME.CompanionButtonShow:SetChecked( GUPPET_OPTIONS["IngameButton"]["CompanionButton"] )
 	_G["GupPet_CompanionButtonShow" .. "Text"]:SetText( GUPPET_L["COMPANIONBUTTONSHOW"][1]  )
 
-	GUPPET_INTERFACE_OPTIONFRAME.ButtonAlignment = CreateFrame("CheckButton", "GupPet_ButtonAlignment"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.ButtonAlignment = CreateFrame("CheckButton", "GupPet_ButtonAlignment"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonAlignment:SetPoint("TOPLEFT", 20, -77 )
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonAlignment:SetScript("OnClick", function (self, button, down)  if self:GetChecked() then GUPPET_OPTIONS.IngameButton.Alignment = "Vertical"   else GUPPET_OPTIONS.IngameButton.Alignment = "Horizontal"  end ; GupPet_Interface_IngameButtons(); end)
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonAlignment:SetChecked(  GUPPET_OPTIONS.IngameButton.Alignment == "Vertical")
 	_G["GupPet_ButtonAlignment" .. "Text"]:SetText( GUPPET_L["BUTTONALIGNMENT"][1]  )
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonAlignment.tooltipText = GUPPET_L["BUTTONALIGNMENT"][2]
 
-	GUPPET_INTERFACE_OPTIONFRAME.ButtonHideKeyBind = CreateFrame("CheckButton", "GupPet_ButtonHideKeyBind"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.ButtonHideKeyBind = CreateFrame("CheckButton", "GupPet_ButtonHideKeyBind"  , GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame, "GupPet_CheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonHideKeyBind:SetPoint("TOPLEFT", 20, -92 )
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonHideKeyBind:SetScript("OnClick", function (self, button, down)  if self:GetChecked() then GUPPET_OPTIONS.IngameButton.ButtonHideKeyBind = true; else GUPPET_OPTIONS.IngameButton.ButtonHideKeyBind = nil;  end  GupPet_OnEvent(self, "UPDATE_BINDINGS");  end)
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonHideKeyBind:SetChecked(  GUPPET_OPTIONS.IngameButton.ButtonHideKeyBind )
@@ -277,7 +277,7 @@ function GupPet_Interface_Option()
 	GUPPET_INTERFACE_OPTIONFRAME.ButtonHideKeyBind.tooltipText = GUPPET_L["HIDEKEYBINDTEXT"][2]
 
 
-	GUPPET_INTERFACE_OPTIONFRAME.Scale = CreateFrame('Slider', "GupPet_Scale", GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame , 'OptionsSliderTemplate')
+	GUPPET_INTERFACE_OPTIONFRAME.Scale = CreateFrame('Slider', "GupPet_Scale", GUPPET_INTERFACE_OPTIONFRAME.IngameButtonFrame , 'OptionsSliderTemplate', "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.Scale:SetPoint('TOP', 0, -130)
 	GUPPET_INTERFACE_OPTIONFRAME.Scale:SetOrientation('HORIZONTAL')
 	GUPPET_INTERFACE_OPTIONFRAME.Scale:SetWidth(160)
@@ -294,20 +294,20 @@ function GupPet_Interface_Option()
 	----------------------------------------------------------------------------
 	----------------------------------------------------------------------------
 	-- Extra
-	GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame = CreateFrame("FRAME", "GupPet_ExtraFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame = CreateFrame("FRAME", "GupPet_ExtraFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame:SetWidth(180)
 	GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame:SetHeight(100)
 	GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame:SetPoint("TOPRIGHT", -10 , -30)
 	_G["GupPet_ExtraFrame" .. "SubTitle"]:SetText("|cFFFC830E".. GUPPET_L["EXTRA"][1])
 
-	GUPPET_INTERFACE_OPTIONFRAME.AutoDismount = CreateFrame("CheckButton", "GupPet_AutoDismount"  , GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame, "OptionsSmallCheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.AutoDismount = CreateFrame("CheckButton", "GupPet_AutoDismount"  , GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame, "OptionsSmallCheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.AutoDismount:SetPoint("TOPLEFT", 10, -10 )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoDismount:SetScript("OnClick", function (self, button, down)    GupPet_AutoDismount(  self:GetChecked() )  end)
 	GUPPET_INTERFACE_OPTIONFRAME.AutoDismount:SetChecked(  GUPPET_OPTIONS["AutoDismount"] )
 	_G["GupPet_AutoDismount" .. "Text"]:SetText( GUPPET_L["AUTODISMOUNT"][1]  )
 	GUPPET_INTERFACE_OPTIONFRAME.AutoDismount.tooltipText = GUPPET_L["AUTODISMOUNT"][2]
 
-	GUPPET_INTERFACE_OPTIONFRAME.ExpertMode = CreateFrame("CheckButton", "GupPet_ExpertMode"  , GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame, "OptionsSmallCheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.ExpertMode = CreateFrame("CheckButton", "GupPet_ExpertMode"  , GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame, "OptionsSmallCheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.ExpertMode:SetPoint("TOPLEFT", 10, -30 )
 	GUPPET_INTERFACE_OPTIONFRAME.ExpertMode:SetScript("OnClick", function (self, button, down)  StaticPopup_Show ("GupPet_Interface_ChangeMode");   end)
 	GUPPET_INTERFACE_OPTIONFRAME.ExpertMode:SetChecked(  GUPPET_OPTIONS.Mode == "Expert" )
@@ -315,7 +315,7 @@ function GupPet_Interface_Option()
 	GUPPET_INTERFACE_OPTIONFRAME.ExpertMode.tooltipText = GUPPET_L["EXPERTMODE"][2]
 
 
-	GUPPET_INTERFACE_OPTIONFRAME.NewLearnedOn = CreateFrame("CheckButton", "GupPet_NewLearnedOn", GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame, "OptionsSmallCheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.NewLearnedOn = CreateFrame("CheckButton", "GupPet_NewLearnedOn", GUPPET_INTERFACE_OPTIONFRAME.ExtraFrame, "OptionsSmallCheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.NewLearnedOn:SetPoint("TOPLEFT", 10, -60 )
 	GUPPET_INTERFACE_OPTIONFRAME.NewLearnedOn:SetScript("OnClick", function(self, button, down) GUPPET_OPTIONS["NewLearnedOn"] = self:GetChecked() end)
 	GUPPET_INTERFACE_OPTIONFRAME.NewLearnedOn:SetChecked(  GUPPET_OPTIONS["NewLearnedOn"] )
@@ -325,13 +325,13 @@ function GupPet_Interface_Option()
 	----------------------------------------------------------------------------
 	-- PREVIEW FRAME
 
-	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrame = CreateFrame("FRAME", "GupPet_PreviewFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrame = CreateFrame("FRAME", "GupPet_PreviewFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrame:SetWidth(200)
 	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrame:SetHeight(95)
 	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrame:SetPoint("TOPLEFT", 10 , -220)
 	_G["GupPet_PreviewFrame" .. "SubTitle"]:SetText("|cFFFC830E".. GUPPET_L["PREVIEWFRAME"][1])
 
-	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameSpeed = CreateFrame('Slider', "GupPet_PreviewFrameSpeed", GUPPET_INTERFACE_OPTIONFRAME.PreviewFrame , 'GupPet_OptionsSliderTemplate')
+	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameSpeed = CreateFrame('Slider', "GupPet_PreviewFrameSpeed", GUPPET_INTERFACE_OPTIONFRAME.PreviewFrame , 'GupPet_OptionsSliderTemplate', "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameSpeed:SetPoint('TOP', 0, -20)
 	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameSpeed:SetOrientation('HORIZONTAL')
 	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameSpeed:SetWidth(160)
@@ -346,7 +346,7 @@ function GupPet_Interface_Option()
 	_G["GupPet_PreviewFrameSpeed" .. "High"]:SetText(GUPPET_L["PREVIEWFRAMESPEED"][3])
 	_G["GupPet_PreviewFrameSpeed" .. "Current"]:SetText( GUPPET_OPTIONS.PreviewFrameSpeed )
 
-	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameStartPos = CreateFrame('Slider', "GupPet_PreviewFrameStartPos", GUPPET_INTERFACE_OPTIONFRAME.PreviewFrame , 'OptionsSliderTemplate')
+	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameStartPos = CreateFrame('Slider', "GupPet_PreviewFrameStartPos", GUPPET_INTERFACE_OPTIONFRAME.PreviewFrame , 'OptionsSliderTemplate', "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameStartPos:SetPoint('TOP', 0, -63)
 	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameStartPos:SetOrientation('HORIZONTAL')
 	GUPPET_INTERFACE_OPTIONFRAME.PreviewFrameStartPos:SetWidth(160)
@@ -364,14 +364,14 @@ function GupPet_Interface_Option()
 	----------------------------------------------------------------------------
 	-- MINIMAPBUTTON
 
-	GUPPET_INTERFACE_OPTIONFRAME.MinimapButton = CreateFrame("FRAME", "GupPet_MinimapButton", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.MinimapButton = CreateFrame("FRAME", "GupPet_MinimapButton", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.MinimapButton:SetWidth(210)
 	GUPPET_INTERFACE_OPTIONFRAME.MinimapButton:SetHeight(43)
 	GUPPET_INTERFACE_OPTIONFRAME.MinimapButton:SetPoint("BOTTOMLEFT", 10 , 10)
 	_G["GupPet_MinimapButton" .. "SubTitle"]:SetText("|cFFFC830E".. GUPPET_L["MINIMAPBUTTONFRAME"][1])
 
 
-	GUPPET_INTERFACE_OPTIONFRAME.MinimapButtonShow = CreateFrame("CheckButton", "GupPet_MinimapButtonShow"  , GUPPET_INTERFACE_OPTIONFRAME.MinimapButton, "OptionsSmallCheckButtonTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.MinimapButtonShow = CreateFrame("CheckButton", "GupPet_MinimapButtonShow"  , GUPPET_INTERFACE_OPTIONFRAME.MinimapButton, "OptionsSmallCheckButtonTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.MinimapButtonShow:SetPoint("TOPLEFT", 10, -10 )
 	GUPPET_INTERFACE_OPTIONFRAME.MinimapButtonShow:SetScript("OnClick", function (self, button, down)  GUPPET_OPTIONS["MinimapButton"]["Show"]=self:GetChecked();  GupPet_Interface_MinimapButton_Init();   end)
 	GUPPET_INTERFACE_OPTIONFRAME.MinimapButtonShow:SetChecked(  GUPPET_OPTIONS["MinimapButton"]["Show"] )
@@ -382,7 +382,7 @@ function GupPet_Interface_Option()
 	-- CLASS
 	if GUPPET_TEMPCLASSDATA.Type == "DRUID" or GUPPET_TEMPCLASSDATA.Type == "SHAMAN" or GUPPET_TEMPCLASSDATA.Type == "MAGE" or GUPPET_TEMPCLASSDATA.Type == "DEATHKNIGHT" or GUPPET_TEMPCLASSDATA.Type == "PRIEST" or GUPPET_TEMPCLASSDATA.Type == "HUNTER" then
 
-		GUPPET_INTERFACE_OPTIONFRAME.ClassFrame = CreateFrame("FRAME", "GupPet_ClassFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate")
+		GUPPET_INTERFACE_OPTIONFRAME.ClassFrame = CreateFrame("FRAME", "GupPet_ClassFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate", "BackdropTemplate")
 		GUPPET_INTERFACE_OPTIONFRAME.ClassFrame:SetWidth(210)
 		GUPPET_INTERFACE_OPTIONFRAME.ClassFrame:SetHeight(40)
 		GUPPET_INTERFACE_OPTIONFRAME.ClassFrame:SetPoint("BOTTOMRIGHT", -10 , 10)
@@ -393,31 +393,31 @@ function GupPet_Interface_Option()
 			GUPPET_INTERFACE_OPTIONFRAME.ClassFrame:SetWidth(230)
 			GUPPET_INTERFACE_OPTIONFRAME.ClassFrame:SetHeight(95)
 
-			GUPPET_INTERFACE_OPTIONFRAME.Inconsistent = CreateFrame("CheckButton", "GupPet_Inconsistent"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.Inconsistent = CreateFrame("CheckButton", "GupPet_Inconsistent"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.Inconsistent:SetPoint("TOPLEFT", 10, -10 )
 			GUPPET_INTERFACE_OPTIONFRAME.Inconsistent:SetChecked( GUPPET_OPTIONS["Class"]["Inconsistent"]  )
 			GUPPET_INTERFACE_OPTIONFRAME.Inconsistent:SetScript("OnClick", function (self, button, down) GUPPET_OPTIONS["Class"]["Inconsistent"]=self:GetChecked();  end)
 			_G["GupPet_Inconsistent" .. "Text"]:SetText( GUPPET_L["DRUID_Inconsistent"])
 
-			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Fly = CreateFrame("CheckButton", "GupPet_DRUID_Fly"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Fly = CreateFrame("CheckButton", "GupPet_DRUID_Fly"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Fly:SetPoint("TOPLEFT", 10, -25 )
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Fly:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["FlyForm"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Fly:SetChecked(  GUPPET_OPTIONS["Class"]["FlyForm"]  )
 			_G["GupPet_DRUID_Fly" .. "Text"]:SetText( GUPPET_L["DRUID_Fly"][1]  )
 
-			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Aquatic = CreateFrame("CheckButton", "GupPet_DRUID_Aquatic"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Aquatic = CreateFrame("CheckButton", "GupPet_DRUID_Aquatic"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Aquatic:SetPoint("TOPLEFT", 10, -40 )
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Aquatic:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["AquaticForm"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Aquatic:SetChecked(  GUPPET_OPTIONS["Class"]["AquaticForm"]  )
 			_G["GupPet_DRUID_Aquatic" .. "Text"]:SetText( GUPPET_L["DRUID_Aquatic"][1]  )
 
-			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Travel = CreateFrame("CheckButton", "GupPet_DRUID_Travel"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Travel = CreateFrame("CheckButton", "GupPet_DRUID_Travel"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Travel:SetPoint("TOPLEFT", 10, -55 )
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Travel:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["TravelOnFormWalking"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Travel:SetChecked(  GUPPET_OPTIONS["Class"]["TravelOnFormWalking"]  )
 			_G["GupPet_DRUID_Travel" .. "Text"]:SetText( GUPPET_L["DRUID_Travel"][1]  )
 
-			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Cat = CreateFrame("CheckButton", "GupPet_DRUID_Cat"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Cat = CreateFrame("CheckButton", "GupPet_DRUID_Cat"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Cat:SetPoint("TOPLEFT", 10, -70 )
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Cat:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["CatOnIndoors"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.DRUID_Cat:SetChecked(  GUPPET_OPTIONS["Class"]["CatOnIndoors"]  )
@@ -427,14 +427,14 @@ function GupPet_Interface_Option()
 			-- Enable / Disable --> Ghost enable on Moving
 			GUPPET_INTERFACE_OPTIONFRAME.ClassFrame:SetHeight(60)
 
-			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_Ghost = CreateFrame("CheckButton", "GupPet_SHAMAN_Ghost"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_Ghost = CreateFrame("CheckButton", "GupPet_SHAMAN_Ghost"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_Ghost:SetPoint("TOPLEFT", 10, -10 )
 			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_Ghost:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["GhostWolfOnWalking"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_Ghost:SetChecked(  GUPPET_OPTIONS["Class"]["GhostWolfOnWalking"]  )
 			_G["GupPet_SHAMAN_Ghost" .. "Text"]:SetText( GUPPET_L["SHAMAN_Ghost"][1]  )
 
 			-- WaterWalking
-			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_WaterWalking = CreateFrame("CheckButton", "GupPet_SHAMAN_WaterWalking"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_WaterWalking = CreateFrame("CheckButton", "GupPet_SHAMAN_WaterWalking"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_WaterWalking:SetPoint("TOPLEFT", 10, -25 )
 			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_WaterWalking:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["UseWaterWalking"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.SHAMAN_WaterWalking:SetChecked(  GUPPET_OPTIONS["Class"]["UseWaterWalking"]  )
@@ -444,7 +444,7 @@ function GupPet_Interface_Option()
 		elseif GUPPET_TEMPCLASSDATA.Type == "MAGE" then
 			-- Enable / Disable --> Slowfall on falling
 
-			GUPPET_INTERFACE_OPTIONFRAME.MAGE_SlowFall = CreateFrame("CheckButton", "GupPet_MAGE_SlowFall"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.MAGE_SlowFall = CreateFrame("CheckButton", "GupPet_MAGE_SlowFall"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.MAGE_SlowFall:SetPoint("TOPLEFT", 10, -10 )
 			GUPPET_INTERFACE_OPTIONFRAME.MAGE_SlowFall:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["SlowFallOnFalling"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.MAGE_SlowFall:SetChecked(  GUPPET_OPTIONS["Class"]["SlowFallOnFalling"]  )
@@ -453,7 +453,7 @@ function GupPet_Interface_Option()
 		elseif GUPPET_TEMPCLASSDATA.Type == "PRIEST" then
 			-- Enable / Disable --> Levitate on falling
 
-			GUPPET_INTERFACE_OPTIONFRAME.PRIEST_Levitate = CreateFrame("CheckButton", "GupPet_PRIEST_Levitate"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.PRIEST_Levitate = CreateFrame("CheckButton", "GupPet_PRIEST_Levitate"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.PRIEST_Levitate:SetPoint("TOPLEFT", 10, -10 )
 			GUPPET_INTERFACE_OPTIONFRAME.PRIEST_Levitate:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["LevitateOnFalling"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.PRIEST_Levitate:SetChecked(  GUPPET_OPTIONS["Class"]["LevitateOnFalling"]  )
@@ -461,7 +461,7 @@ function GupPet_Interface_Option()
 
 		elseif GUPPET_TEMPCLASSDATA.Type == "DEATHKNIGHT" then
 
-			GUPPET_INTERFACE_OPTIONFRAME.DEATHKNIGHT_PathOfFrost = CreateFrame("CheckButton", "GupPet_DEATHKNIGHT_PathOfFrost"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.DEATHKNIGHT_PathOfFrost = CreateFrame("CheckButton", "GupPet_DEATHKNIGHT_PathOfFrost"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.DEATHKNIGHT_PathOfFrost:SetPoint("TOPLEFT", 10, -10 )
 			GUPPET_INTERFACE_OPTIONFRAME.DEATHKNIGHT_PathOfFrost:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["UsePathOfFrost"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.DEATHKNIGHT_PathOfFrost:SetChecked(  GUPPET_OPTIONS["Class"]["UsePathOfFrost"]  )
@@ -470,7 +470,7 @@ function GupPet_Interface_Option()
 		elseif GUPPET_TEMPCLASSDATA.Type == "HUNTER" then
 			-- Enable / Disable --> Cheetah enable on Moving
 
-			GUPPET_INTERFACE_OPTIONFRAME.HUNTER_Cheetah = CreateFrame("CheckButton", "GupPet_HUNTER_Cheetah"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate")
+			GUPPET_INTERFACE_OPTIONFRAME.HUNTER_Cheetah = CreateFrame("CheckButton", "GupPet_HUNTER_Cheetah"  , GUPPET_INTERFACE_OPTIONFRAME.ClassFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 			GUPPET_INTERFACE_OPTIONFRAME.HUNTER_Cheetah:SetPoint("TOPLEFT", 10, -10 )
 			GUPPET_INTERFACE_OPTIONFRAME.HUNTER_Cheetah:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["CheetahOnWalking"] = self:GetChecked()  end)
 			GUPPET_INTERFACE_OPTIONFRAME.HUNTER_Cheetah:SetChecked(  GUPPET_OPTIONS["Class"]["CheetahOnWalking"]  )
@@ -485,12 +485,12 @@ function GupPet_Interface_Option()
 	-- RACE
 	if GUPPET_TEMPRACEDATA.Type == "Worgen" then
 
-		GUPPET_INTERFACE_OPTIONFRAME.RaceFrame = CreateFrame("FRAME", "GupPet_RaceFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate")
+		GUPPET_INTERFACE_OPTIONFRAME.RaceFrame = CreateFrame("FRAME", "GupPet_RaceFrame", GupPet_InterfaceOptionsFrameOptions , "GupPet_FieldTemplate", "BackdropTemplate")
 		GUPPET_INTERFACE_OPTIONFRAME.RaceFrame:SetWidth(180)
 		GUPPET_INTERFACE_OPTIONFRAME.RaceFrame:SetHeight(60)
 		GUPPET_INTERFACE_OPTIONFRAME.RaceFrame:SetPoint( "RIGHT", -10, 0)
 
-		GUPPET_INTERFACE_OPTIONFRAME.Worgen_RunningWild = CreateFrame("CheckButton", "GupPet_Worgen_RunningWild"  , GUPPET_INTERFACE_OPTIONFRAME.RaceFrame , "GupPet_CheckButtonTemplate")
+		GUPPET_INTERFACE_OPTIONFRAME.Worgen_RunningWild = CreateFrame("CheckButton", "GupPet_Worgen_RunningWild"  , GUPPET_INTERFACE_OPTIONFRAME.RaceFrame , "GupPet_CheckButtonTemplate", "BackdropTemplate")
 		GUPPET_INTERFACE_OPTIONFRAME.Worgen_RunningWild:SetPoint("TOPLEFT", 10, -10 )
 		GUPPET_INTERFACE_OPTIONFRAME.Worgen_RunningWild:SetScript("OnClick", function (self, button, down)   GUPPET_OPTIONS["Class"]["RunningWild"] = self:GetChecked()  end)
 		GUPPET_INTERFACE_OPTIONFRAME.Worgen_RunningWild:SetChecked(  GUPPET_OPTIONS["Class"]["RunningWild"]  )
@@ -501,13 +501,13 @@ function GupPet_Interface_Option()
 	----------------------------------------------------------------------------
 	----------------------------------------------------------------------------
 	-- HELPFRAME
-	GUPPET_INTERFACE_OPTIONFRAME.SlashFrame = CreateFrame("FRAME", "GupPet_SlashFrame", GupPet_InterfaceOptionsFrameHelp , "GupPet_FieldTemplate")
+	GUPPET_INTERFACE_OPTIONFRAME.SlashFrame = CreateFrame("FRAME", "GupPet_SlashFrame", GupPet_InterfaceOptionsFrameHelp , "GupPet_FieldTemplate", "BackdropTemplate")
 	GUPPET_INTERFACE_OPTIONFRAME.SlashFrame:SetWidth(660)
 	GUPPET_INTERFACE_OPTIONFRAME.SlashFrame:SetHeight(160)
 	GUPPET_INTERFACE_OPTIONFRAME.SlashFrame:SetPoint("BOTTOMLEFT", 10 , 10)
 	_G["GupPet_SlashFrame" .. "SubTitle"]:SetText("|cFFFC830E".. GUPPET_L["SLASHCOMMANDS"][1])
 
-	GUPPET_INTERFACE_OPTIONFRAME.SlashCommands = CreateFrame("SimpleHTML", "GupPet_Slash" , GUPPET_INTERFACE_OPTIONFRAME.SlashFrame )
+	GUPPET_INTERFACE_OPTIONFRAME.SlashCommands = CreateFrame("SimpleHTML", "GupPet_Slash" , GUPPET_INTERFACE_OPTIONFRAME.SlashFrame, "BackdropTemplate" )
 	GUPPET_INTERFACE_OPTIONFRAME.SlashCommands:SetWidth(640)
 	GUPPET_INTERFACE_OPTIONFRAME.SlashCommands:SetHeight(50)
 	GUPPET_INTERFACE_OPTIONFRAME.SlashCommands:SetPoint("TOPLEFT", 10 , -10)
